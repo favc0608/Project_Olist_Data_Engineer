@@ -61,6 +61,7 @@ Cada venta recorre su ciclo de vida y emite eventos: `pedido_creado`, `pedido_ap
 - 4 tiendas ficticias generadas con plantillas HTML/CSS y Python stdlib ([`competencia/`](../competencia/)),
   48 productos reales de Olist con precios en BRL, ~60 páginas por tienda.
 - Hosting: bucket S3 privado + CloudFront con OAC (S3 directo devuelve 403), `X-Robots-Tag: noindex`.
+  Sitio publicado: https://d1wz0ixjw02i7c.cloudfront.net/ (portal con enlaces a las 4 tiendas).
 - `web_publicador`: aplica cambios de precio (por horario o desde un Colab de cambios) y guarda la "verdad"
   de cada versión para poder validar el scraping.
 - `web_scraper`: extrae precio, precio anterior, descuento y stock de cada tienda con reglas específicas

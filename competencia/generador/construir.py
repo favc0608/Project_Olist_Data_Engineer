@@ -20,7 +20,7 @@ import precios  # noqa: E402
 import sitio  # noqa: E402
 
 RAIZ = Path(__file__).resolve().parents[1]
-URL_SITIO = "https://<distribucion>.cloudfront.net/"
+URL_SITIO = "https://d1wz0ixjw02i7c.cloudfront.net/"
 INSPIRACION = {"mercadoabierto": "Mercado Libre", "selva": "Amazon", "compree": "Shopee", "ridley": "Ripley"}
 
 

@@ -23,6 +23,26 @@ Everything is infrastructure as code (CloudFormation) and the orchestration logi
 
 ---
 
+## Demo en vivo
+
+La fuente web del proyecto está publicada (S3 privado + CloudFront con OAC). Son 4 tiendas ficticias de la
+competencia, generadas con Python a partir de 48 productos reales de Olist, que el scraper lee a diario:
+
+| Sitio | Enlace |
+|---|---|
+| Portal de las 4 tiendas | https://d1wz0ixjw02i7c.cloudfront.net/ |
+| Mercado Abierto | https://d1wz0ixjw02i7c.cloudfront.net/mercadoabierto/index.html |
+| Selva | https://d1wz0ixjw02i7c.cloudfront.net/selva/index.html |
+| Compree | https://d1wz0ixjw02i7c.cloudfront.net/compree/index.html |
+| Ridley | https://d1wz0ixjw02i7c.cloudfront.net/ridley/index.html |
+| Último scraping (JSON público) | https://d1wz0ixjw02i7c.cloudfront.net/_estado/scraping.json |
+| Precios leídos por el scraper | https://d1wz0ixjw02i7c.cloudfront.net/_estado/precios.json |
+
+> Las tiendas son ficticias (sin marcas reales) y el sitio se publica con `noindex`. Los precios cambian cuando el
+> publicador aplica una nueva versión; el scraper los captura y el pipeline los historiza en SCD2.
+
+---
+
 ## Contenido
 
 1. [Problema de negocio](#1-problema-de-negocio)

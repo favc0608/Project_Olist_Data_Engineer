@@ -2,7 +2,7 @@
 
 Uso:
   .venv\\Scripts\\python.exe competencia\\tests\\validar_scraping.py --fecha 2026-11-10
-  .venv\\Scripts\\python.exe competencia\\tests\\validar_scraping.py --fuente https://<distribucion>.cloudfront.net
+  .venv\\Scripts\\python.exe competencia\\tests\\validar_scraping.py --fuente https://d1wz0ixjw02i7c.cloudfront.net
 Salida: tabla de reglas por tienda, comparativa de precios y código 1 si alguna regla falla.
 """
 import argparse
