@@ -1,0 +1,116 @@
+<nav class="ml-breadcrumb" aria-label="Breadcrumb">
+  <a href="${raiz}index.html">Início</a>
+  <span>/</span>
+  <a href="$url_categoria">$categoria_nome</a>
+  <span>/</span>
+  <span>$sku_loja</span>
+</nav>
+
+<article class="ml-pdp-card$classe_estoque" data-sku="$sku_loja" data-ean="$ean"$data_extra>
+  <div class="ml-pdp-grid">
+    <div class="ml-pdp-gallery">
+      $badge_patrocinado
+      <div class="ml-pdp-gallery__main">$svg</div>
+      <div class="ml-pdp-gallery__meta">
+        <span>SKU: <strong>$sku_loja</strong></span>
+        <span>EAN: <strong>$ean</strong></span>
+      </div>
+    </div>
+
+    <div class="ml-pdp-info">
+      <span class="ui-search-item__brand-discoverability">$marca</span>
+      <h1 class="ui-search-item__title">$titulo_produto</h1>
+
+      <div class="ml-pdp-rating">
+        <span class="ui-search-reviews__stars">★★★★★</span>
+        <span class="ui-search-reviews__rating-number">$rating</span>
+        <span class="ui-search-reviews__amount">($avaliacoes avaliações)</span>
+      </div>
+
+      <div class="ml-pdp-price-block">
+        <s class="andes-money-amount andes-money-amount--previous">
+          <span class="andes-money-amount__currency-symbol">$rs</span><span class="andes-money-amount__fraction">$preco_lista_inteiro</span><span class="andes-money-amount__cents">$preco_lista_centavos</span>
+        </s>
+        <div class="ui-search-price__second-line">
+          <span class="andes-money-amount ui-search-price__part">
+            <span class="andes-money-amount__currency-symbol">$rs</span><span class="andes-money-amount__fraction">$preco_inteiro</span><span class="andes-money-amount__cents">$preco_centavos</span>
+          </span>
+          <span class="ui-search-price__discount">$desconto% OFF</span>
+        </div>
+        <p class="ui-search-installments">$parcelas</p>
+      </div>
+
+      <div class="ml-pdp-shipping">
+        <p class="ui-search-item__shipping-free"><strong>$frete_gratis</strong></p>
+        <p class="ui-search-item__fulfillment">Enviado pelo <strong>$full</strong> • Vendido por <strong>$vendedor</strong></p>
+        <p class="ui-search-item__stock-status">Status: <strong>$texto_estoque</strong></p>
+      </div>
+
+      <div class="ml-pdp-actions">
+        <a href="${raiz}frete.html" class="ml-btn ml-btn--primary">Comprar agora</a>
+        <a href="${raiz}busca/pagina-1.html" class="ml-btn ml-btn--outline">Adicionar ao carrinho</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ml-pdp-sections">
+    <section class="ml-pdp-box">
+      <h2>Características Técnicas</h2>
+      <table class="andes-table">
+        <tbody>
+          $specs
+        </tbody>
+      </table>
+    </section>
+
+    <section class="ml-pdp-box">
+      <h2>Calcule o Frete e Prazo por Região</h2>
+      <table class="andes-table g1-fretes ml-frete-regiao-table">
+        <thead>
+          <tr>
+            <th>Região do Brasil</th>
+            <th>Valor do Frete</th>
+            <th>Prazo Estimado</th>
+          </tr>
+        </thead>
+        <tbody>
+          $fretes
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <section class="ml-pdp-box">
+    <h2>Outros Vendedores deste Produto</h2>
+    <table class="andes-table ui-pdp-other-sellers">
+      <thead>
+        <tr>
+          <th>Vendedor</th>
+          <th>UF</th>
+          <th>Reputação</th>
+          <th>Vendas</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        $outros_vendedores
+      </tbody>
+    </table>
+  </section>
+
+  <section class="ml-pdp-box">
+    <h2>Opiniões sobre o Produto</h2>
+    <div class="ml-reviews-grid">
+      $resenas
+    </div>
+  </section>
+</article>
+
+<section class="ml-section">
+  <div class="ml-section__header">
+    <h2>Produtos Relacionados</h2>
+  </div>
+  <ol class="ui-search-layout ui-search-layout--grid">
+    $relacionados
+  </ol>
+</section>

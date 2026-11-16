@@ -1,0 +1,1794 @@
+{
+ "mercadoabierto": {
+  "productos": [
+   {
+    "sku": "OL-0001",
+    "sku_loja": "MAB-6108865860",
+    "agotado": false,
+    "descontinuado": true,
+    "vendedor": "Loja Oficial Casa Serena",
+    "otros_vendedores": [
+     {
+      "vendedor": "Tech Mais",
+      "recargo": 0.16
+     }
+    ]
+   },
+   {
+    "sku": "OL-0002",
+    "sku_loja": "MAB-0032526630",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Rio Decor",
+    "otros_vendedores": [
+     {
+      "vendedor": "Rio Decor",
+      "recargo": 0.02
+     },
+     {
+      "vendedor": "Tech Mais",
+      "recargo": 0.11
+     }
+    ]
+   },
+   {
+    "sku": "OL-0003",
+    "sku_loja": "MAB-1323664422",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Minas Utilidades",
+    "otros_vendedores": [
+     {
+      "vendedor": "Minas Utilidades",
+      "recargo": 0.1
+     }
+    ]
+   },
+   {
+    "sku": "OL-0004",
+    "sku_loja": "MAB-6881257231",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Ponto Fit",
+    "otros_vendedores": []
+   },
+   {
+    "sku": "OL-0005",
+    "sku_loja": "MAB-6484827260",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Loja Oficial Casa Serena",
+    "otros_vendedores": [
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.06
+     },
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.08
+     }
+    ]
+   },
+   {
+    "sku": "OL-0006",
+    "sku_loja": "MAB-3653783748",
+    "agotado": true,
+    "descontinuado": false,
+    "vendedor": "Loja Oficial Casa Serena",
+    "otros_vendedores": [
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.14
+     },
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.16
+     }
+    ]
+   },
+   {
+    "sku": "OL-0007",
+    "sku_loja": "MAB-5357932116",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Ponto Fit",
+    "otros_vendedores": []
+   },
+   {
+    "sku": "OL-0008",
+    "sku_loja": "MAB-7380501443",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Loja Oficial Casa Serena",
+    "otros_vendedores": [
+     {
+      "vendedor": "Ponto Fit",
+      "recargo": 0.02
+     },
+     {
+      "vendedor": "Minas Utilidades",
+      "recargo": 0.06
+     }
+    ]
+   },
+   {
+    "sku": "OL-0009",
+    "sku_loja": "MAB-1841915191",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Ponto Fit",
+    "otros_vendedores": [
+     {
+      "vendedor": "MegaStore Brasil",
+      "recargo": 0.07
+     }
+    ]
+   },
+   {
+    "sku": "OL-0010",
+    "sku_loja": "MAB-2239740651",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Minas Utilidades",
+    "otros_vendedores": [
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.05
+     }
+    ]
+   },
+   {
+    "sku": "OL-0011",
+    "sku_loja": "MAB-9990819195",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Bazar do Sul",
+    "otros_vendedores": [
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.13
+     },
+     {
+      "vendedor": "MegaStore Brasil",
+      "recargo": 0.11
+     },
+     {
+      "vendedor": "Minas Utilidades",
+      "recargo": 0.15
+     }
+    ]
+   },
+   {
+    "sku": "OL-0012",
+    "sku_loja": "MAB-9807041772",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Rio Decor",
+    "otros_vendedores": [
+     {
+      "vendedor": "Rio Decor",
+      "recargo": 0.03
+     },
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.04
+     }
+    ]
+   },
+   {
+    "sku": "OL-0013",
+    "sku_loja": "MAB-7555202230",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Bazar do Sul",
+    "otros_vendedores": []
+   },
+   {
+    "sku": "OL-0014",
+    "sku_loja": "MAB-2890558194",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Loja Oficial Casa Serena",
+    "otros_vendedores": []
+   },
+   {
+    "sku": "OL-0015",
+    "sku_loja": "MAB-5922808067",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "MegaStore Brasil",
+    "otros_vendedores": [
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.06
+     },
+     {
+      "vendedor": "Rio Decor",
+      "recargo": 0.04
+     },
+     {
+      "vendedor": "MegaStore Brasil",
+      "recargo": 0.04
+     }
+    ]
+   },
+   {
+    "sku": "OL-0016",
+    "sku_loja": "MAB-7582543832",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Tech Mais",
+    "otros_vendedores": [
+     {
+      "vendedor": "Tech Mais",
+      "recargo": 0.02
+     }
+    ]
+   },
+   {
+    "sku": "OL-0017",
+    "sku_loja": "MAB-7589242845",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Tech Mais",
+    "otros_vendedores": []
+   },
+   {
+    "sku": "OL-0018",
+    "sku_loja": "MAB-5938253371",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Rio Decor",
+    "otros_vendedores": [
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.13
+     },
+     {
+      "vendedor": "Rio Decor",
+      "recargo": 0.09
+     },
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.09
+     }
+    ]
+   },
+   {
+    "sku": "OL-0019",
+    "sku_loja": "MAB-5927368454",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Rio Decor",
+    "otros_vendedores": [
+     {
+      "vendedor": "Tech Mais",
+      "recargo": 0.09
+     },
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.03
+     },
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.02
+     }
+    ]
+   },
+   {
+    "sku": "OL-0020",
+    "sku_loja": "MAB-0026926519",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Nordeste Shop",
+    "otros_vendedores": [
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.02
+     }
+    ]
+   },
+   {
+    "sku": "OL-0021",
+    "sku_loja": "MAB-8519991077",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Tech Mais",
+    "otros_vendedores": []
+   },
+   {
+    "sku": "OL-0022",
+    "sku_loja": "MAB-8430721162",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Minas Utilidades",
+    "otros_vendedores": [
+     {
+      "vendedor": "MegaStore Brasil",
+      "recargo": 0.06
+     },
+     {
+      "vendedor": "Bazar do Sul",
+      "recargo": 0.09
+     }
+    ]
+   },
+   {
+    "sku": "OL-0023",
+    "sku_loja": "MAB-0659440458",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Nordeste Shop",
+    "otros_vendedores": [
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.04
+     },
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.04
+     },
+     {
+      "vendedor": "Bazar do Sul",
+      "recargo": 0.02
+     }
+    ]
+   },
+   {
+    "sku": "OL-0024",
+    "sku_loja": "MAB-0667855137",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Rio Decor",
+    "otros_vendedores": []
+   },
+   {
+    "sku": "OL-0025",
+    "sku_loja": "MAB-3286973409",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Rio Decor",
+    "otros_vendedores": [
+     {
+      "vendedor": "Ponto Fit",
+      "recargo": 0.04
+     }
+    ]
+   },
+   {
+    "sku": "OL-0026",
+    "sku_loja": "MAB-8731766819",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Rio Decor",
+    "otros_vendedores": [
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.14
+     },
+     {
+      "vendedor": "Bazar do Sul",
+      "recargo": 0.1
+     },
+     {
+      "vendedor": "Ponto Fit",
+      "recargo": 0.15
+     }
+    ]
+   },
+   {
+    "sku": "OL-0027",
+    "sku_loja": "MAB-0468874966",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Bazar do Sul",
+    "otros_vendedores": [
+     {
+      "vendedor": "Rio Decor",
+      "recargo": 0.03
+     }
+    ]
+   },
+   {
+    "sku": "OL-0028",
+    "sku_loja": "MAB-9515452839",
+    "agotado": true,
+    "descontinuado": false,
+    "vendedor": "Bazar do Sul",
+    "otros_vendedores": [
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.08
+     },
+     {
+      "vendedor": "Tech Mais",
+      "recargo": 0.02
+     },
+     {
+      "vendedor": "MegaStore Brasil",
+      "recargo": 0.14
+     }
+    ]
+   },
+   {
+    "sku": "OL-0029",
+    "sku_loja": "MAB-7051431866",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Nordeste Shop",
+    "otros_vendedores": [
+     {
+      "vendedor": "Rio Decor",
+      "recargo": 0.04
+     }
+    ]
+   },
+   {
+    "sku": "OL-0030",
+    "sku_loja": "MAB-7178752076",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Bazar do Sul",
+    "otros_vendedores": [
+     {
+      "vendedor": "Bazar do Sul",
+      "recargo": 0.03
+     }
+    ]
+   },
+   {
+    "sku": "OL-0031",
+    "sku_loja": "MAB-3483610154",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Loja Oficial Casa Serena",
+    "otros_vendedores": [
+     {
+      "vendedor": "Minas Utilidades",
+      "recargo": 0.14
+     },
+     {
+      "vendedor": "Tech Mais",
+      "recargo": 0.14
+     }
+    ]
+   },
+   {
+    "sku": "OL-0032",
+    "sku_loja": "MAB-8504839638",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Ponto Fit",
+    "otros_vendedores": []
+   },
+   {
+    "sku": "OL-0033",
+    "sku_loja": "MAB-9164706892",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Bazar do Sul",
+    "otros_vendedores": []
+   },
+   {
+    "sku": "OL-0034",
+    "sku_loja": "MAB-9220698131",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Loja Oficial Casa Serena",
+    "otros_vendedores": [
+     {
+      "vendedor": "MegaStore Brasil",
+      "recargo": 0.11
+     },
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.07
+     }
+    ]
+   },
+   {
+    "sku": "OL-0035",
+    "sku_loja": "MAB-3995853659",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Bazar do Sul",
+    "otros_vendedores": [
+     {
+      "vendedor": "Tech Mais",
+      "recargo": 0.08
+     },
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.16
+     },
+     {
+      "vendedor": "Tech Mais",
+      "recargo": 0.12
+     }
+    ]
+   },
+   {
+    "sku": "OL-0036",
+    "sku_loja": "MAB-2236654333",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Ponto Fit",
+    "otros_vendedores": [
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.05
+     },
+     {
+      "vendedor": "Tech Mais",
+      "recargo": 0.03
+     }
+    ]
+   },
+   {
+    "sku": "OL-0037",
+    "sku_loja": "MAB-4890084014",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Tech Mais",
+    "otros_vendedores": []
+   },
+   {
+    "sku": "OL-0038",
+    "sku_loja": "MAB-3501065302",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Nordeste Shop",
+    "otros_vendedores": [
+     {
+      "vendedor": "Ponto Fit",
+      "recargo": 0.03
+     },
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.07
+     },
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.1
+     }
+    ]
+   },
+   {
+    "sku": "OL-0039",
+    "sku_loja": "MAB-5741360295",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Rio Decor",
+    "otros_vendedores": [
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.13
+     }
+    ]
+   },
+   {
+    "sku": "OL-0040",
+    "sku_loja": "MAB-7541471143",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Ponto Fit",
+    "otros_vendedores": [
+     {
+      "vendedor": "Rio Decor",
+      "recargo": 0.1
+     },
+     {
+      "vendedor": "Bazar do Sul",
+      "recargo": 0.02
+     },
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.14
+     }
+    ]
+   },
+   {
+    "sku": "OL-0041",
+    "sku_loja": "MAB-4014542559",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Ponto Fit",
+    "otros_vendedores": []
+   },
+   {
+    "sku": "OL-0042",
+    "sku_loja": "MAB-8989739393",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Loja Oficial Casa Serena",
+    "otros_vendedores": []
+   },
+   {
+    "sku": "OL-0043",
+    "sku_loja": "MAB-8740183442",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Tech Mais",
+    "otros_vendedores": [
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.06
+     }
+    ]
+   },
+   {
+    "sku": "OL-0044",
+    "sku_loja": "MAB-7048167221",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Nordeste Shop",
+    "otros_vendedores": [
+     {
+      "vendedor": "Rio Decor",
+      "recargo": 0.09
+     },
+     {
+      "vendedor": "MegaStore Brasil",
+      "recargo": 0.04
+     }
+    ]
+   },
+   {
+    "sku": "OL-0045",
+    "sku_loja": "MAB-1219334371",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Tech Mais",
+    "otros_vendedores": [
+     {
+      "vendedor": "Bazar do Sul",
+      "recargo": 0.1
+     },
+     {
+      "vendedor": "Minas Utilidades",
+      "recargo": 0.11
+     },
+     {
+      "vendedor": "Rio Decor",
+      "recargo": 0.04
+     }
+    ]
+   },
+   {
+    "sku": "OL-0046",
+    "sku_loja": "MAB-2485159516",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "MegaStore Brasil",
+    "otros_vendedores": [
+     {
+      "vendedor": "Rio Decor",
+      "recargo": 0.1
+     },
+     {
+      "vendedor": "Tech Mais",
+      "recargo": 0.09
+     }
+    ]
+   },
+   {
+    "sku": "OL-0047",
+    "sku_loja": "MAB-1612027715",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "Tech Mais",
+    "otros_vendedores": [
+     {
+      "vendedor": "Minas Utilidades",
+      "recargo": 0.16
+     },
+     {
+      "vendedor": "Loja Oficial Casa Serena",
+      "recargo": 0.09
+     },
+     {
+      "vendedor": "Ponto Fit",
+      "recargo": 0.15
+     }
+    ]
+   },
+   {
+    "sku": "OL-0048",
+    "sku_loja": "MAB-0042038227",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "MegaStore Brasil",
+    "otros_vendedores": [
+     {
+      "vendedor": "Nordeste Shop",
+      "recargo": 0.15
+     },
+     {
+      "vendedor": "Bazar do Sul",
+      "recargo": 0.06
+     }
+    ]
+   }
+  ],
+  "vendedores": [
+   {
+    "vendedor": "Loja Oficial Casa Serena",
+    "uf": "SP"
+   },
+   {
+    "vendedor": "MegaStore Brasil",
+    "uf": "SP"
+   },
+   {
+    "vendedor": "Bazar do Sul",
+    "uf": "RS"
+   },
+   {
+    "vendedor": "Ponto Fit",
+    "uf": "PR"
+   },
+   {
+    "vendedor": "Tech Mais",
+    "uf": "SC"
+   },
+   {
+    "vendedor": "Nordeste Shop",
+    "uf": "PE"
+   },
+   {
+    "vendedor": "Minas Utilidades",
+    "uf": "MG"
+   },
+   {
+    "vendedor": "Rio Decor",
+    "uf": "RJ"
+   }
+  ]
+ },
+ "selva": {
+  "productos": [
+   {
+    "sku": "OL-0001",
+    "sku_loja": "B01N3QTY4W",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0002",
+    "sku_loja": "B06EH9DMK1",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0003",
+    "sku_loja": "B05S8MZQFT",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0004",
+    "sku_loja": "B0KN0E6M9J",
+    "agotado": true,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0006",
+    "sku_loja": "B0RKU6F03V",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0007",
+    "sku_loja": "B00TXR7X3R",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0008",
+    "sku_loja": "B0CP1N6RYC",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0009",
+    "sku_loja": "B0WKEWX8W3",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0010",
+    "sku_loja": "B0X9N9SYGD",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0011",
+    "sku_loja": "B0Z3R1B3S2",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0012",
+    "sku_loja": "B0Z2VBWA5C",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0013",
+    "sku_loja": "B0FW7ZS7KR",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0014",
+    "sku_loja": "B0WS13E03Q",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0015",
+    "sku_loja": "B0XDYCV6S2",
+    "agotado": true,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0017",
+    "sku_loja": "B0V02AG7B1",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0018",
+    "sku_loja": "B0UN638619",
+    "agotado": true,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0019",
+    "sku_loja": "B0VV7LNVZA",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0021",
+    "sku_loja": "B0ZRCJCPZ7",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0022",
+    "sku_loja": "B0JRRTA45D",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0023",
+    "sku_loja": "B0ZT8FV4U0",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0024",
+    "sku_loja": "B0W02JLXND",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0025",
+    "sku_loja": "B0SVYZ8HZ3",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0026",
+    "sku_loja": "B0LWA77ZJ6",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0027",
+    "sku_loja": "B0CLC4KEZL",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0028",
+    "sku_loja": "B0JD0SEHNX",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0029",
+    "sku_loja": "B0P84LMHAY",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0030",
+    "sku_loja": "B0VMNXEADK",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0031",
+    "sku_loja": "B0S0K2S51Y",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0032",
+    "sku_loja": "B01VHXKKYJ",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0033",
+    "sku_loja": "B0V48TUF66",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0035",
+    "sku_loja": "B0MKDPXT7T",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0036",
+    "sku_loja": "B0LZ7NWNGT",
+    "agotado": false,
+    "descontinuado": true
+   },
+   {
+    "sku": "OL-0037",
+    "sku_loja": "B0T7MVN20H",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0038",
+    "sku_loja": "B0KAVLWKDC",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0039",
+    "sku_loja": "B0CXN3HJXL",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0040",
+    "sku_loja": "B0TVH5UY8U",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0041",
+    "sku_loja": "B09T7CPA8E",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0042",
+    "sku_loja": "B0MV674MKL",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0043",
+    "sku_loja": "B0RT1KKN4J",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0045",
+    "sku_loja": "B0U4YSMUYK",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0047",
+    "sku_loja": "B02UP9A2NX",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0048",
+    "sku_loja": "B0VJU8A1VX",
+    "agotado": false,
+    "descontinuado": false
+   }
+  ],
+  "vendedores": []
+ },
+ "compree": {
+  "productos": [
+   {
+    "sku": "OL-0001",
+    "sku_loja": "CP-29932003388",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "bela_vida"
+   },
+   {
+    "sku": "OL-0002",
+    "sku_loja": "CP-91366781451",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "casa_e_cia"
+   },
+   {
+    "sku": "OL-0003",
+    "sku_loja": "CP-29584659305",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "fit_store"
+   },
+   {
+    "sku": "OL-0004",
+    "sku_loja": "CP-31756743678",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "casa_e_cia",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.23
+     },
+     {
+      "nombre": "Premium",
+      "recargo": 0.46
+     }
+    ]
+   },
+   {
+    "sku": "OL-0005",
+    "sku_loja": "CP-08502101503",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "fit_store"
+   },
+   {
+    "sku": "OL-0006",
+    "sku_loja": "CP-44900730669",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "gamer_point",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.16
+     },
+     {
+      "nombre": "Premium",
+      "recargo": 0.32
+     }
+    ]
+   },
+   {
+    "sku": "OL-0007",
+    "sku_loja": "CP-29126569302",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "achadinhos.br"
+   },
+   {
+    "sku": "OL-0008",
+    "sku_loja": "CP-48491871127",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "fit_store",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.16
+     },
+     {
+      "nombre": "Premium",
+      "recargo": 0.32
+     }
+    ]
+   },
+   {
+    "sku": "OL-0009",
+    "sku_loja": "CP-16612044309",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "casa_e_cia",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.29
+     }
+    ]
+   },
+   {
+    "sku": "OL-0010",
+    "sku_loja": "CP-75192556903",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "casa_e_cia"
+   },
+   {
+    "sku": "OL-0011",
+    "sku_loja": "CP-59952103129",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "fit_store"
+   },
+   {
+    "sku": "OL-0012",
+    "sku_loja": "CP-51503308000",
+    "agotado": false,
+    "descontinuado": true,
+    "vendedor": "bela_vida"
+   },
+   {
+    "sku": "OL-0013",
+    "sku_loja": "CP-71515312166",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "fit_store",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.32
+     },
+     {
+      "nombre": "Premium",
+      "recargo": 0.64
+     }
+    ]
+   },
+   {
+    "sku": "OL-0014",
+    "sku_loja": "CP-32958770561",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "compree_oficial"
+   },
+   {
+    "sku": "OL-0015",
+    "sku_loja": "CP-36234839334",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "compree_oficial"
+   },
+   {
+    "sku": "OL-0017",
+    "sku_loja": "CP-97498685364",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "fit_store"
+   },
+   {
+    "sku": "OL-0018",
+    "sku_loja": "CP-86650993355",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "compree_oficial",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.3
+     }
+    ]
+   },
+   {
+    "sku": "OL-0019",
+    "sku_loja": "CP-37602295785",
+    "agotado": true,
+    "descontinuado": false,
+    "vendedor": "lar_doce"
+   },
+   {
+    "sku": "OL-0020",
+    "sku_loja": "CP-40810655337",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "lar_doce"
+   },
+   {
+    "sku": "OL-0021",
+    "sku_loja": "CP-11631175387",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "achadinhos.br",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.19
+     },
+     {
+      "nombre": "Premium",
+      "recargo": 0.38
+     }
+    ]
+   },
+   {
+    "sku": "OL-0022",
+    "sku_loja": "CP-30553437362",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "gamer_point"
+   },
+   {
+    "sku": "OL-0023",
+    "sku_loja": "CP-53192238457",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "lar_doce",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.2
+     }
+    ]
+   },
+   {
+    "sku": "OL-0024",
+    "sku_loja": "CP-92148731079",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "lar_doce",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.29
+     }
+    ]
+   },
+   {
+    "sku": "OL-0025",
+    "sku_loja": "CP-53124455912",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "gamer_point",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.18
+     }
+    ]
+   },
+   {
+    "sku": "OL-0026",
+    "sku_loja": "CP-16705375617",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "achadinhos.br"
+   },
+   {
+    "sku": "OL-0027",
+    "sku_loja": "CP-09485322396",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "lar_doce"
+   },
+   {
+    "sku": "OL-0028",
+    "sku_loja": "CP-05158189286",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "bela_vida"
+   },
+   {
+    "sku": "OL-0029",
+    "sku_loja": "CP-67985192589",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "fit_store"
+   },
+   {
+    "sku": "OL-0031",
+    "sku_loja": "CP-81019640578",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "bela_vida",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.15
+     }
+    ]
+   },
+   {
+    "sku": "OL-0032",
+    "sku_loja": "CP-77018946195",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "lar_doce"
+   },
+   {
+    "sku": "OL-0033",
+    "sku_loja": "CP-28396021769",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "casa_e_cia"
+   },
+   {
+    "sku": "OL-0034",
+    "sku_loja": "CP-83517733627",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "achadinhos.br"
+   },
+   {
+    "sku": "OL-0035",
+    "sku_loja": "CP-88904158298",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "compree_oficial"
+   },
+   {
+    "sku": "OL-0036",
+    "sku_loja": "CP-24513028783",
+    "agotado": true,
+    "descontinuado": false,
+    "vendedor": "bela_vida"
+   },
+   {
+    "sku": "OL-0037",
+    "sku_loja": "CP-35017594122",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "achadinhos.br"
+   },
+   {
+    "sku": "OL-0038",
+    "sku_loja": "CP-92825573509",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "lar_doce"
+   },
+   {
+    "sku": "OL-0039",
+    "sku_loja": "CP-51567457457",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "fit_store"
+   },
+   {
+    "sku": "OL-0040",
+    "sku_loja": "CP-25941758909",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "gamer_point"
+   },
+   {
+    "sku": "OL-0041",
+    "sku_loja": "CP-19125440285",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "gamer_point"
+   },
+   {
+    "sku": "OL-0042",
+    "sku_loja": "CP-21849057227",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "casa_e_cia"
+   },
+   {
+    "sku": "OL-0043",
+    "sku_loja": "CP-51981444281",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "achadinhos.br"
+   },
+   {
+    "sku": "OL-0044",
+    "sku_loja": "CP-80453912162",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "lar_doce",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.32
+     }
+    ]
+   },
+   {
+    "sku": "OL-0045",
+    "sku_loja": "CP-11172479189",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "ofertas_ja",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.2
+     }
+    ]
+   },
+   {
+    "sku": "OL-0046",
+    "sku_loja": "CP-36451391956",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "bela_vida",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.34
+     }
+    ]
+   },
+   {
+    "sku": "OL-0047",
+    "sku_loja": "CP-25263207278",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "fit_store",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.31
+     },
+     {
+      "nombre": "Premium",
+      "recargo": 0.62
+     }
+    ]
+   },
+   {
+    "sku": "OL-0048",
+    "sku_loja": "CP-46335415085",
+    "agotado": false,
+    "descontinuado": false,
+    "vendedor": "fit_store",
+    "variantes": [
+     {
+      "nombre": "Padrão",
+      "recargo": 0.0
+     },
+     {
+      "nombre": "Grande",
+      "recargo": 0.25
+     }
+    ]
+   }
+  ],
+  "vendedores": [
+   {
+    "vendedor": "compree_oficial",
+    "uf": "SP"
+   },
+   {
+    "vendedor": "achadinhos.br",
+    "uf": "SP"
+   },
+   {
+    "vendedor": "casa_e_cia",
+    "uf": "MG"
+   },
+   {
+    "vendedor": "fit_store",
+    "uf": "RJ"
+   },
+   {
+    "vendedor": "gamer_point",
+    "uf": "PR"
+   },
+   {
+    "vendedor": "bela_vida",
+    "uf": "BA"
+   },
+   {
+    "vendedor": "lar_doce",
+    "uf": "GO"
+   },
+   {
+    "vendedor": "ofertas_ja",
+    "uf": "CE"
+   }
+  ]
+ },
+ "ridley": {
+  "productos": [
+   {
+    "sku": "OL-0002",
+    "sku_loja": "RDL-20040805",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0003",
+    "sku_loja": "RDL-20047588",
+    "agotado": false,
+    "descontinuado": true
+   },
+   {
+    "sku": "OL-0004",
+    "sku_loja": "RDL-20047907",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0005",
+    "sku_loja": "RDL-20042625",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0006",
+    "sku_loja": "RDL-20048725",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0007",
+    "sku_loja": "RDL-20047038",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0008",
+    "sku_loja": "RDL-20041901",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0009",
+    "sku_loja": "RDL-20041574",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0010",
+    "sku_loja": "RDL-20045322",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0011",
+    "sku_loja": "RDL-20040906",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0012",
+    "sku_loja": "RDL-20044377",
+    "agotado": true,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0013",
+    "sku_loja": "RDL-20040359",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0014",
+    "sku_loja": "RDL-20040080",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0018",
+    "sku_loja": "RDL-20042038",
+    "agotado": true,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0019",
+    "sku_loja": "RDL-20045845",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0020",
+    "sku_loja": "RDL-20046730",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0021",
+    "sku_loja": "RDL-20042153",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0022",
+    "sku_loja": "RDL-20042702",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0023",
+    "sku_loja": "RDL-20047225",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0025",
+    "sku_loja": "RDL-20047682",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0026",
+    "sku_loja": "RDL-20046657",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0027",
+    "sku_loja": "RDL-20047485",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0028",
+    "sku_loja": "RDL-20045973",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0029",
+    "sku_loja": "RDL-20045172",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0030",
+    "sku_loja": "RDL-20048026",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0031",
+    "sku_loja": "RDL-20040649",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0032",
+    "sku_loja": "RDL-20048850",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0033",
+    "sku_loja": "RDL-20041865",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0034",
+    "sku_loja": "RDL-20047278",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0036",
+    "sku_loja": "RDL-20048767",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0037",
+    "sku_loja": "RDL-20048193",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0038",
+    "sku_loja": "RDL-20045994",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0039",
+    "sku_loja": "RDL-20044245",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0041",
+    "sku_loja": "RDL-20048796",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0043",
+    "sku_loja": "RDL-20044429",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0044",
+    "sku_loja": "RDL-20043772",
+    "agotado": true,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0045",
+    "sku_loja": "RDL-20043280",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0046",
+    "sku_loja": "RDL-20049713",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0047",
+    "sku_loja": "RDL-20042288",
+    "agotado": false,
+    "descontinuado": false
+   },
+   {
+    "sku": "OL-0048",
+    "sku_loja": "RDL-20045551",
+    "agotado": false,
+    "descontinuado": false
+   }
+  ],
+  "vendedores": []
+ }
+}

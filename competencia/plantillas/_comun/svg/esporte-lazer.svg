@@ -1,0 +1,11 @@
+<svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Esporte e Lazer">
+  <rect x="12" y="12" width="136" height="96" rx="14" fill="currentColor" fill-opacity="0.08"/>
+  <!-- Bicicleta / Mancuerna y balón -->
+  <circle cx="52" cy="72" r="20" fill="currentColor" fill-opacity="0.14" stroke="currentColor" stroke-width="3.5"/>
+  <circle cx="112" cy="72" r="20" fill="currentColor" fill-opacity="0.14" stroke="currentColor" stroke-width="3.5"/>
+  <path d="M52 72L74 44H102L82 72H52Z" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M102 44L112 72" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M68 44L62 34H54" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M98 34H110" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+</svg>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="g1-version" content="$version">
+  <title>Competidores simulados - DMC Grupo 1</title>
+  <style>
+    :root { --fondo: #f4f5f7; --texto: #1d2330; --suave: #5b6475; --borde: #dde1e8; --acento: #2557d6; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; background: var(--fondo); color: var(--texto); }
+    main { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+    h1 { font-size: 1.8rem; margin: 0 0 8px; }
+    p { color: var(--suave); line-height: 1.6; }
+    .tiendas { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0; }
+    .tienda { display: flex; flex-direction: column; gap: 4px; padding: 20px; background: #fff; border: 1px solid var(--borde);
+              border-radius: 12px; text-decoration: none; color: var(--texto); transition: transform .15s, box-shadow .15s; }
+    .tienda:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+    .tienda strong { font-size: 1.2rem; }
+    .tienda span { color: var(--suave); font-size: .9rem; }
+    .tienda em { color: var(--acento); font-style: normal; font-size: .85rem; margin-top: 8px; }
+    footer { font-size: .8rem; color: var(--suave); border-top: 1px solid var(--borde); padding-top: 16px; }
+  </style>
+</head>
+<body>
+<div class="g1-aviso" style="background:#111;color:#fff;font:12px/1.6 Arial,sans-serif;text-align:center;padding:4px 8px;">Sitio simulado con fines académicos - DMC Grupo 1</div>
+<main>
+  <h1>Competidores simulados de Olist</h1>
+  <p>Cuatro tiendas ficticias de Brasil para practicar web scraping. Los nombres y diseños solo evocan a las
+     tiendas reales que los inspiran; productos y precios son simulados y cambian cada día.</p>
+  <div class="tiendas">
+$tiendas
+  </div>
+  <footer>Precios del $fecha · versión $version · Proyecto Integrador DMC, Grupo 1</footer>
+</main>
+</body>
+</html>

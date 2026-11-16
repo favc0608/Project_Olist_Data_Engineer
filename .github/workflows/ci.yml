@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - name: Instalar dependencias
+        run: pip install -r requirements-dev.txt
+      - name: Lint (errores de sintaxis y nombres no definidos)
+        run: ruff check --select E9,F63,F7,F82 .
+      - name: Pruebas del orquestador y las Lambdas
+        run: python -m unittest discover -s tests -v
+      - name: Pruebas del sitio de la competencia
+        run: python -m unittest discover -s competencia/tests -p "test_*.py" -v

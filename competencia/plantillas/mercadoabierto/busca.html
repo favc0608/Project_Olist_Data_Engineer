@@ -1,0 +1,49 @@
+<div class="ml-search-header">
+  <nav class="ml-breadcrumb" aria-label="Breadcrumb">
+    <a href="${raiz}index.html">Início</a>
+    <span>/</span>
+    <span>Catálogo Geral (Página $pagina de $paginas)</span>
+  </nav>
+  <div class="ml-search-summary">
+    <h1>Catálogo de Produtos</h1>
+    <p class="ui-search-search-result__quantity-results">Mostrando $desde-$hasta de $total resultados</p>
+  </div>
+</div>
+
+<div class="ml-catalog-layout">
+  <aside class="ml-sidebar">
+    <div class="ml-filter-box">
+      <h3>Entrega Full</h3>
+      <label class="ml-check-row"><input type="checkbox" checked disabled> <span>Enviado pelo ⚡ FULL</span></label>
+      <label class="ml-check-row"><input type="checkbox" checked disabled> <span>Frete grátis disponível</span></label>
+    </div>
+    <div class="ml-filter-box">
+      <h3>Condição e Parcelas</h3>
+      <label class="ml-check-row"><input type="checkbox" checked disabled> <span>Sem juros no cartão</span></label>
+      <label class="ml-check-row"><input type="checkbox" checked disabled> <span>Lojas Oficiais</span></label>
+    </div>
+    <div class="ml-filter-box">
+      <h3>Ordenar por</h3>
+      <p class="ml-sort-active">Mais relevantes</p>
+    </div>
+  </aside>
+
+  <section class="ml-results-column">
+    <ol class="ui-search-layout ui-search-layout--grid">
+      $tarjetas
+    </ol>
+
+    <nav class="andes-pagination-nav" aria-label="Paginação">
+      <ul class="andes-pagination">
+        <li class="andes-pagination__button andes-pagination__button--prev">
+          <a href="$url_anterior" class="andes-pagination__link" rel="prev">← Anterior</a>
+        </li>
+        $paginacao
+        <li class="andes-pagination__button andes-pagination__button--next">
+          <a href="$url_seguinte" class="andes-pagination__link" rel="next">Seguinte →</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+</div>
+

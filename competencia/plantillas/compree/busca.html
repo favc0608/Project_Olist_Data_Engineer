@@ -1,0 +1,34 @@
+<div class="cp-sort-bar">
+  <span>Mostrando <strong>$desde-$hasta de $total resultados</strong> (Página $pagina de $paginas)</span>
+  <div>Ordenar por: <strong>Populares • Mais Vendidos</strong></div>
+</div>
+
+<div class="cp-catalog-layout">
+  <aside class="cp-sidebar">
+    <div class="cp-filter-box">
+      <h3>Filtro de Busca</h3>
+      <label><input type="checkbox" checked disabled> Frete Grátis disponível</label>
+      <label><input type="checkbox" checked disabled> Lojas do Brasil</label>
+      <label><input type="checkbox" checked disabled> Com Desconto Flash</label>
+    </div>
+  </aside>
+
+  <section>
+    <div class="shopee-search-item-result__items">
+      $tarjetas
+    </div>
+
+    <nav class="cp-pagination" aria-label="Paginação">
+      <ul class="shopee-page-controller">
+        <li class="shopee-page-controller__item">
+          <a href="$url_anterior" class="shopee-page-controller__btn" rel="prev">← Anterior</a>
+        </li>
+        $paginacao
+        <li class="shopee-page-controller__item">
+          <a href="$url_seguinte" class="shopee-page-controller__btn" rel="next">Seguinte →</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+</div>
+

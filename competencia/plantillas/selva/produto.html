@@ -1,0 +1,99 @@
+<nav class="s-breadcrumb" aria-label="Breadcrumb">
+  <a href="${raiz}index.html">Início</a> › <a href="$url_categoria">$categoria_nome</a> › <span>$sku_loja</span>
+</nav>
+
+<article class="s-pdp-container$classe_estoque" data-asin="$asin" data-sku="$sku_loja" data-ean="$ean"$data_extra>
+  <div class="s-pdp-top">
+    <div class="s-pdp-media">
+      $badge_patrocinado
+      <div class="s-pdp-svg">$svg</div>
+      <div class="s-pdp-codes">
+        <span>ASIN: <strong>$asin</strong></span>
+        <span>SKU: <strong>$sku_loja</strong></span>
+        <span>EAN: <strong>$ean</strong></span>
+      </div>
+    </div>
+
+    <div class="s-pdp-center">
+      <div class="s-brand-line">Marca: <strong>$marca</strong></div>
+      <h1 class="a-size-large a-text-normal">$titulo_produto</h1>
+
+      <div class="a-row s-rating-row">
+        <span class="a-icon-alt">$rating de 5 estrelas</span>
+        <span class="s-stars">★★★★★</span>
+        <span class="s-underline-text">$avaliacoes avaliações de clientes</span>
+      </div>
+
+      <div class="s-pdp-price-box">
+        <span class="a-price" data-a-size="xl" data-a-color="base">
+          <span class="a-offscreen">$usd_texto</span>
+          <span aria-hidden="true">
+            <span class="a-price-symbol">US$$</span><span class="a-price-whole">$usd_inteiro<span class="a-price-decimal">.</span></span><span class="a-price-fraction">$usd_fracao</span>
+          </span>
+        </span>
+        <span class="a-price a-text-price" data-a-strike="true">
+          <span class="a-offscreen">$usd_lista_texto</span>
+          <span aria-hidden="true">$usd_lista_texto</span>
+        </span>
+        <span class="s-discount-pill">-$desconto%</span>
+        <div class="a-row">
+          <span class="fx-estimate">$brl_estimado</span>
+        </div>
+      </div>
+
+      <div class="s-pdp-status">
+        <span class="s-prime-badge">$plus</span>
+        <span class="s-free-shipping">$frete_gratis</span>
+        <p><span class="s-stock-status">$texto_estoque</span></p>
+      </div>
+
+      <div class="s-hero__cta">
+        <a href="${raiz}frete.html" class="s-btn s-btn--primary">Comprar Agora</a>
+        <a href="${raiz}busca/pagina-1.html" class="s-btn s-btn--secondary">Adicionar ao Carrinho</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-pdp-details-grid">
+    <section class="s-box">
+      <h2>Informações Técnicas do Produto</h2>
+      <table id="productDetails_techSpec_section_1" class="s-table">
+        <tbody>
+          $specs
+        </tbody>
+      </table>
+    </section>
+
+    <section class="s-box">
+      <h2>Calcule o Frete e Prazo por Região</h2>
+      <table class="s-table g1-fretes">
+        <thead>
+          <tr>
+            <th>Região</th>
+            <th>Valor em $rs</th>
+            <th>Prazo Estimado</th>
+          </tr>
+        </thead>
+        <tbody>
+          $fretes
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <section class="s-box">
+    <h2>Avaliações de Clientes no Brasil</h2>
+    <div class="s-reviews-list">
+      $resenas
+    </div>
+  </section>
+</article>
+
+<section class="s-section">
+  <div class="s-section__head">
+    <h2>Clientes também compraram</h2>
+  </div>
+  <div class="s-main-slot">
+    $relacionados
+  </div>
+</section>

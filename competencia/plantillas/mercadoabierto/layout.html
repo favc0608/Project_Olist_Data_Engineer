@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="g1-version" content="$version">
+  <meta name="description" content="$descricao">
+  <title>$titulo</title>
+  <link rel="stylesheet" href="${raiz}css/styles.css">
+  $head_extra
+</head>
+<body>
+  $aviso
+  <header class="ml-header">
+    <div class="ml-header__container">
+      <div class="ml-header__top">
+        <a href="${raiz}index.html" class="ml-logo" aria-label="$tienda Brasil">
+          <svg viewBox="0 0 100 68" width="48" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="68" rx="12" fill="#FFE600"/>
+            <path d="M22 42C26 34 32 30 40 32C46 33.5 50 37 56 36C62 35 67 28 78 35C82 37.5 83 45 78 50C71 57 60 56 50 51C42 47 34 50 28 53C22 56 18 48 22 42Z" fill="#2D3277"/>
+            <path d="M38 31C42 27 50 25 58 27C62 28 66 31 70 30" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <span class="ml-logo__text">mercado<br><strong>abierto</strong></span>
+        </a>
+
+        <form class="ml-search-bar" action="${raiz}busca/pagina-1.html" method="get">
+          <input type="search" class="ml-search-bar__input" name="q" placeholder="Buscar produtos, marcas e muito mais..." aria-label="Buscar produtos">
+          <button type="submit" class="ml-search-bar__btn" aria-label="Buscar">Buscar</button>
+        </form>
+
+        <div class="ml-header__promo">
+          <span>⚡ Envios rápidos com <strong>FULL</strong> para todo o Brasil</span>
+        </div>
+      </div>
+
+      <div class="ml-header__bottom">
+        <div class="ml-header__cep">
+          <span>📍 Enviar para <strong>São Paulo - SP</strong></span>
+        </div>
+        <nav class="ml-nav" aria-label="Navegação principal">
+          <a href="${raiz}index.html" class="ml-nav__link">Início</a>
+          <a href="${raiz}busca/pagina-1.html" class="ml-nav__link">Catálogo Completo</a>
+          <a href="${raiz}ofertas.html" class="ml-nav__link ml-nav__link--highlight">Ofertas do Dia ⚡</a>
+          <a href="${raiz}frete.html" class="ml-nav__link">Frete e Prazos</a>
+          <a href="${raiz}vendedores.html" class="ml-nav__link">Lojas Oficiais</a>
+          <a href="${raiz}../index.html" class="ml-nav__link">← Hub G1</a>
+        </nav>
+      </div>
+
+      <div class="ml-categories-strip" aria-label="Categorias da loja">
+        $menu_categorias
+      </div>
+    </div>
+  </header>
+
+  <main class="ml-main-container">
+    $conteudo
+  </main>
+
+  <footer class="ml-footer">
+    <div class="ml-footer__inner">
+      <div class="ml-footer__cols">
+        <div>
+          <h4>Sobre o $tienda</h4>
+          <ul>
+            <li><a href="${raiz}index.html">Quem somos</a></li>
+            <li><a href="${raiz}vendedores.html">Vendedores e Reputação</a></li>
+            <li><a href="${raiz}ofertas.html">Ofertas Relâmpago</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ajuda e Envios</h4>
+          <ul>
+            <li><a href="${raiz}frete.html">Tabela de Frete por UF (27 Estados)</a></li>
+            <li><a href="${raiz}busca/pagina-1.html">Mapa do Catálogo</a></li>
+            <li><a href="${raiz}sitemap.xml">Sitemap XML</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Pagamento Seguro</h4>
+          <p>Parcelamento sem juros, Pix imediato e Compra Garantida em todo o território brasileiro ($rs).</p>
+        </div>
+      </div>
+      <div class="ml-footer__copy">
+        <p>Site simulado para fins acadêmicos - DMC Grupo 1 • $tienda Brasil • Versão: <code>$version</code></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

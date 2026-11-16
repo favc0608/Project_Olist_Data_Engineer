@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="g1-version" content="$version">
+  <meta name="description" content="$descricao">
+  <title>$titulo</title>
+  <link rel="stylesheet" href="${raiz}css/styles.css">
+  $head_extra
+</head>
+<body>
+  $aviso
+  <header class="s-header">
+    <div class="s-nav-belt">
+      <a href="${raiz}index.html" class="s-logo" aria-label="$tienda Brasil">
+        <span class="s-logo__main">selva</span><span class="s-logo__tld">.com.br</span>
+      </a>
+      <div class="s-deliver-to">
+        <span>Enviar para</span>
+        <strong>Brasil (US$$ → $rs)</strong>
+      </div>
+      <form class="s-search-form" action="${raiz}busca/pagina-1.html" method="get">
+        <input type="search" name="k" class="s-search-input" placeholder="Pesquisar na $tienda Internacional..." aria-label="Pesquisar">
+        <button type="submit" class="s-search-btn" aria-label="Pesquisar">Ir</button>
+      </form>
+      <div class="s-nav-links">
+        <a href="${raiz}frete.html">Câmbio &amp; Frete</a>
+        <a href="${raiz}vendedores.html">Parceiros</a>
+        <a href="${raiz}ofertas.html" class="s-plus-tag">✓plus</a>
+      </div>
+    </div>
+    <nav class="s-subnav" aria-label="Menu principal">
+      <a href="${raiz}index.html">Início</a>
+      <a href="${raiz}busca/pagina-1.html">Todos os Produtos</a>
+      <a href="${raiz}ofertas.html">Ofertas do Dia</a>
+      <a href="${raiz}frete.html">Frete Internacional &amp; Câmbio</a>
+      <a href="${raiz}vendedores.html">Vendedores</a>
+      <a href="${raiz}../index.html">← Hub G1</a>
+    </nav>
+    <div class="s-cat-bar">
+      $menu_categorias
+    </div>
+  </header>
+
+  <main class="s-main">
+    $conteudo
+  </main>
+
+  <footer class="s-footer">
+    <div class="s-footer__inner">
+      <div class="s-footer__cols">
+        <div>
+          <h4>Conheça a $tienda</h4>
+          <ul>
+            <li><a href="${raiz}index.html">Sobre a $tienda Internacional</a></li>
+            <li><a href="${raiz}vendedores.html">Vendedores Globais</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Envio Plus e Moeda</h4>
+          <ul>
+            <li><a href="${raiz}frete.html">Câmbio do dia e Frete para 27 UF</a></li>
+            <li><a href="${raiz}ofertas.html">Ofertas Relâmpago em US$$</a></li>
+            <li><a href="${raiz}sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="s-footer__copy">Site simulado para fins acadêmicos - DMC Grupo 1 • $tienda • Versão: <code>$version</code></p>
+    </div>
+  </footer>
+</body>
+</html>
+

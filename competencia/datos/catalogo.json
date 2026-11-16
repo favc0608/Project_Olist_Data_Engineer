@@ -1,0 +1,903 @@
+{
+ "version": 3,
+ "generado": "2026-11-10",
+ "fuente": "Olist (Kaggle)",
+ "categorias": [
+  {
+   "slug": "cama-mesa-banho",
+   "nombre": "Cama, Mesa e Banho",
+   "olist": "cama_mesa_banho"
+  },
+  {
+   "slug": "beleza-saude",
+   "nombre": "Beleza e Saúde",
+   "olist": "beleza_saude"
+  },
+  {
+   "slug": "esporte-lazer",
+   "nombre": "Esporte e Lazer",
+   "olist": "esporte_lazer"
+  },
+  {
+   "slug": "moveis-decoracao",
+   "nombre": "Móveis e Decoração",
+   "olist": "moveis_decoracao"
+  },
+  {
+   "slug": "informatica-acessorios",
+   "nombre": "Informática e Acessórios",
+   "olist": "informatica_acessorios"
+  },
+  {
+   "slug": "utilidades-domesticas",
+   "nombre": "Utilidades Domésticas",
+   "olist": "utilidades_domesticas"
+  }
+ ],
+ "productos": [
+  {
+   "sku": "OL-0001",
+   "product_id": "06edb72f1e0c64b14c5b79353f7abea3",
+   "ean": "7891836883065",
+   "categoria_olist": "cama_mesa_banho",
+   "categoria": "cama-mesa-banho",
+   "nombre": "Fronha Avulsa Percal 200 Fios",
+   "marca": "Casa Serena",
+   "precio_olist": 39.99,
+   "flete_olist": 15.1,
+   "ventas_olist": 143,
+   "peso_g": 350,
+   "medidas_cm": [
+    25,
+    8,
+    19
+   ]
+  },
+  {
+   "sku": "OL-0002",
+   "product_id": "ec2d43cc59763ec91694573b31f1c29a",
+   "ean": "7890972319698",
+   "categoria_olist": "cama_mesa_banho",
+   "categoria": "cama-mesa-banho",
+   "nombre": "Toalha de Rosto Fio Penteado",
+   "marca": "Casa Serena",
+   "precio_olist": 45.9,
+   "flete_olist": 15.11,
+   "ventas_olist": 131,
+   "peso_g": 800,
+   "medidas_cm": [
+    20,
+    20,
+    20
+   ]
+  },
+  {
+   "sku": "OL-0003",
+   "product_id": "777d2e438a1b645f3aec9bd57e92672c",
+   "ean": "7895226859579",
+   "categoria_olist": "cama_mesa_banho",
+   "categoria": "cama-mesa-banho",
+   "nombre": "Jogo de Toalhas de Banho 2 Peças",
+   "marca": "Ninho Bom",
+   "precio_olist": 69.9,
+   "flete_olist": 16.15,
+   "ventas_olist": 94,
+   "peso_g": 950,
+   "medidas_cm": [
+    45,
+    15,
+    35
+   ]
+  },
+  {
+   "sku": "OL-0004",
+   "product_id": "363218ba55c610b750224f90bdd34be1",
+   "ean": "7899570539347",
+   "categoria_olist": "cama_mesa_banho",
+   "categoria": "cama-mesa-banho",
+   "nombre": "Travesseiro Fibra Siliconada",
+   "marca": "Casa Serena",
+   "precio_olist": 79.99,
+   "flete_olist": 14.31,
+   "ventas_olist": 86,
+   "peso_g": 1813,
+   "medidas_cm": [
+    67,
+    12,
+    47
+   ]
+  },
+  {
+   "sku": "OL-0005",
+   "product_id": "99a4788cb24856965c36a24e339b6058",
+   "ean": "7894646812720",
+   "categoria_olist": "cama_mesa_banho",
+   "categoria": "cama-mesa-banho",
+   "nombre": "Jogo de Lençol Solteiro 3 Peças",
+   "marca": "Fios do Sul",
+   "precio_olist": 89.9,
+   "flete_olist": 15.38,
+   "ventas_olist": 488,
+   "peso_g": 1383,
+   "medidas_cm": [
+    50,
+    10,
+    40
+   ]
+  },
+  {
+   "sku": "OL-0006",
+   "product_id": "84f456958365164420cfc80fbe4c7fab",
+   "ean": "7892420795177",
+   "categoria_olist": "cama_mesa_banho",
+   "categoria": "cama-mesa-banho",
+   "nombre": "Jogo de Lençol Casal 4 Peças 200 Fios",
+   "marca": "Fios do Sul",
+   "precio_olist": 92.0,
+   "flete_olist": 16.24,
+   "ventas_olist": 111,
+   "peso_g": 1550,
+   "medidas_cm": [
+    44,
+    14,
+    34
+   ]
+  },
+  {
+   "sku": "OL-0007",
+   "product_id": "64fb265487de2238627ce43fe8a67efc",
+   "ean": "7894412875133",
+   "categoria_olist": "cama_mesa_banho",
+   "categoria": "cama-mesa-banho",
+   "nombre": "Edredom Casal Dupla Face",
+   "marca": "Fios do Sul",
+   "precio_olist": 92.9,
+   "flete_olist": 21.14,
+   "ventas_olist": 75,
+   "peso_g": 1825,
+   "medidas_cm": [
+    44,
+    14,
+    34
+   ]
+  },
+  {
+   "sku": "OL-0008",
+   "product_id": "f1c7f353075ce59d8a6f3cf58f419c9c",
+   "ean": "7898047227459",
+   "categoria_olist": "cama_mesa_banho",
+   "categoria": "cama-mesa-banho",
+   "nombre": "Kit Colcha Matelassê Queen 3 Peças",
+   "marca": "Fios do Sul",
+   "precio_olist": 202.5,
+   "flete_olist": 22.27,
+   "ventas_olist": 154,
+   "peso_g": 9750,
+   "medidas_cm": [
+    35,
+    12,
+    30
+   ]
+  },
+  {
+   "sku": "OL-0009",
+   "product_id": "154e7e31ebfa092203795c972e5804a6",
+   "ean": "7899037435502",
+   "categoria_olist": "beleza_saude",
+   "categoria": "beleza-saude",
+   "nombre": "Sabonete Líquido Facial 150ml",
+   "marca": "Bella Flor",
+   "precio_olist": 23.99,
+   "flete_olist": 14.1,
+   "ventas_olist": 281,
+   "peso_g": 100,
+   "medidas_cm": [
+    20,
+    15,
+    15
+   ]
+  },
+  {
+   "sku": "OL-0010",
+   "product_id": "437c05a395e9e47f9762e677a7068ce7",
+   "ean": "7895972254901",
+   "categoria_olist": "beleza_saude",
+   "categoria": "beleza-saude",
+   "nombre": "Máscara Capilar Hidratação 500g",
+   "marca": "Derma Sol",
+   "precio_olist": 49.9,
+   "flete_olist": 10.83,
+   "ventas_olist": 155,
+   "peso_g": 1110,
+   "medidas_cm": [
+    19,
+    11,
+    18
+   ]
+  },
+  {
+   "sku": "OL-0011",
+   "product_id": "7c1bd920dbdf22470b68bde975dd3ccf",
+   "ean": "7891151136921",
+   "categoria_olist": "beleza_saude",
+   "categoria": "beleza-saude",
+   "nombre": "Kit Shampoo e Condicionador 300ml",
+   "marca": "Derma Sol",
+   "precio_olist": 58.99,
+   "flete_olist": 16.63,
+   "ventas_olist": 231,
+   "peso_g": 200,
+   "medidas_cm": [
+    22,
+    10,
+    18
+   ]
+  },
+  {
+   "sku": "OL-0012",
+   "product_id": "3fbc0ef745950c7932d5f2a446189725",
+   "ean": "7898675987923",
+   "categoria_olist": "beleza_saude",
+   "categoria": "beleza-saude",
+   "nombre": "Protetor Solar FPS 50 200ml",
+   "marca": "Derma Sol",
+   "precio_olist": 66.99,
+   "flete_olist": 27.49,
+   "ventas_olist": 150,
+   "peso_g": 350,
+   "medidas_cm": [
+    19,
+    12,
+    13
+   ]
+  },
+  {
+   "sku": "OL-0013",
+   "product_id": "2b4609f8948be18874494203496bc318",
+   "ean": "7899341152003",
+   "categoria_olist": "beleza_saude",
+   "categoria": "beleza-saude",
+   "nombre": "Sérum Facial Vitamina C 30ml",
+   "marca": "Derma Sol",
+   "precio_olist": 89.99,
+   "flete_olist": 15.38,
+   "ventas_olist": 260,
+   "peso_g": 250,
+   "medidas_cm": [
+    22,
+    10,
+    18
+   ]
+  },
+  {
+   "sku": "OL-0014",
+   "product_id": "19c91ef95d509ea33eda93495c4d3481",
+   "ean": "7896537272941",
+   "categoria_olist": "beleza_saude",
+   "categoria": "beleza-saude",
+   "nombre": "Escova Secadora Alisadora",
+   "marca": "Derma Sol",
+   "precio_olist": 122.99,
+   "flete_olist": 29.89,
+   "ventas_olist": 156,
+   "peso_g": 700,
+   "medidas_cm": [
+    25,
+    12,
+    19
+   ]
+  },
+  {
+   "sku": "OL-0015",
+   "product_id": "bb50f2e236e5eea0100680137654686c",
+   "ean": "7895926614560",
+   "categoria_olist": "beleza_saude",
+   "categoria": "beleza-saude",
+   "nombre": "Balança Digital Corporal",
+   "marca": "Derma Sol",
+   "precio_olist": 330.0,
+   "flete_olist": 17.02,
+   "ventas_olist": 195,
+   "peso_g": 400,
+   "medidas_cm": [
+    34,
+    4,
+    22
+   ]
+  },
+  {
+   "sku": "OL-0016",
+   "product_id": "6cdd53843498f92890544667809f1595",
+   "ean": "7891480559651",
+   "categoria_olist": "beleza_saude",
+   "categoria": "beleza-saude",
+   "nombre": "Prancha Alisadora Titanium 230°C",
+   "marca": "Vita Pura",
+   "precio_olist": 349.9,
+   "flete_olist": 22.55,
+   "ventas_olist": 156,
+   "peso_g": 900,
+   "medidas_cm": [
+    25,
+    12,
+    38
+   ]
+  },
+  {
+   "sku": "OL-0017",
+   "product_id": "d3c044bd42d84a79e3b0c42662806a48",
+   "ean": "7891822082977",
+   "categoria_olist": "esporte_lazer",
+   "categoria": "esporte-lazer",
+   "nombre": "Squeeze Térmico 750ml",
+   "marca": "Trilha Viva",
+   "precio_olist": 25.9,
+   "flete_olist": 14.1,
+   "ventas_olist": 72,
+   "peso_g": 150,
+   "medidas_cm": [
+    16,
+    16,
+    11
+   ]
+  },
+  {
+   "sku": "OL-0018",
+   "product_id": "44a34214a57dc373dcd80f54c919d006",
+   "ean": "7891703487129",
+   "categoria_olist": "esporte_lazer",
+   "categoria": "esporte-lazer",
+   "nombre": "Corda de Pular com Rolamento",
+   "marca": "Arena Pro",
+   "precio_olist": 29.5,
+   "flete_olist": 16.11,
+   "ventas_olist": 63,
+   "peso_g": 350,
+   "medidas_cm": [
+    67,
+    15,
+    15
+   ]
+  },
+  {
+   "sku": "OL-0019",
+   "product_id": "19421075ae0b585f2dc13ff149e2119d",
+   "ean": "7897436499224",
+   "categoria_olist": "esporte_lazer",
+   "categoria": "esporte-lazer",
+   "nombre": "Tapete de Yoga Antiderrapante",
+   "marca": "Ritmo Fit",
+   "precio_olist": 45.9,
+   "flete_olist": 12.76,
+   "ventas_olist": 59,
+   "peso_g": 150,
+   "medidas_cm": [
+    16,
+    16,
+    11
+   ]
+  },
+  {
+   "sku": "OL-0020",
+   "product_id": "c6336fa91fbd87c359e44f5dca5a90ed",
+   "ean": "7899616613680",
+   "categoria_olist": "esporte_lazer",
+   "categoria": "esporte-lazer",
+   "nombre": "Kit Elásticos de Resistência 5 Níveis",
+   "marca": "Ritmo Fit",
+   "precio_olist": 45.9,
+   "flete_olist": 13.55,
+   "ventas_olist": 94,
+   "peso_g": 150,
+   "medidas_cm": [
+    16,
+    16,
+    11
+   ]
+  },
+  {
+   "sku": "OL-0021",
+   "product_id": "362b773250263786dd58670d2df42c3b",
+   "ean": "7898060717975",
+   "categoria_olist": "esporte_lazer",
+   "categoria": "esporte-lazer",
+   "nombre": "Luvas de Musculação Acolchoadas",
+   "marca": "Ritmo Fit",
+   "precio_olist": 49.9,
+   "flete_olist": 14.1,
+   "ventas_olist": 73,
+   "peso_g": 200,
+   "medidas_cm": [
+    16,
+    16,
+    11
+   ]
+  },
+  {
+   "sku": "OL-0022",
+   "product_id": "11875b30b49585209e608f40e8082e65",
+   "ean": "7897106226679",
+   "categoria_olist": "esporte_lazer",
+   "categoria": "esporte-lazer",
+   "nombre": "Halteres Emborrachados 2kg (Par)",
+   "marca": "Ritmo Fit",
+   "precio_olist": 65.0,
+   "flete_olist": 15.67,
+   "ventas_olist": 66,
+   "peso_g": 1032,
+   "medidas_cm": [
+    17,
+    15,
+    16
+   ]
+  },
+  {
+   "sku": "OL-0023",
+   "product_id": "cec09725da5ed01471d9a505e7389d37",
+   "ean": "7890983644819",
+   "categoria_olist": "esporte_lazer",
+   "categoria": "esporte-lazer",
+   "nombre": "Bola de Futebol Campo Oficial",
+   "marca": "Ritmo Fit",
+   "precio_olist": 69.9,
+   "flete_olist": 17.62,
+   "ventas_olist": 71,
+   "peso_g": 2500,
+   "medidas_cm": [
+    20,
+    11,
+    11
+   ]
+  },
+  {
+   "sku": "OL-0024",
+   "product_id": "e44f675b60b3a3a2453ec36421e06f0f",
+   "ean": "7893286997736",
+   "categoria_olist": "esporte_lazer",
+   "categoria": "esporte-lazer",
+   "nombre": "Mochila Esportiva Impermeável",
+   "marca": "Trilha Viva",
+   "precio_olist": 107.0,
+   "flete_olist": 13.67,
+   "ventas_olist": 84,
+   "peso_g": 350,
+   "medidas_cm": [
+    17,
+    17,
+    17
+   ]
+  },
+  {
+   "sku": "OL-0025",
+   "product_id": "b532349fe46b38fbc7bb3914c1bdae07",
+   "ean": "7894558055512",
+   "categoria_olist": "moveis_decoracao",
+   "categoria": "moveis-decoracao",
+   "nombre": "Quadro Decorativo 40x60",
+   "marca": "Madeira Nobre",
+   "precio_olist": 35.0,
+   "flete_olist": 15.11,
+   "ventas_olist": 169,
+   "peso_g": 850,
+   "medidas_cm": [
+    20,
+    25,
+    20
+   ]
+  },
+  {
+   "sku": "OL-0026",
+   "product_id": "9ecadb84c81da840dbf3564378b586e9",
+   "ean": "7890016036277",
+   "categoria_olist": "moveis_decoracao",
+   "categoria": "moveis-decoracao",
+   "nombre": "Relógio de Parede Minimalista",
+   "marca": "Madeira Nobre",
+   "precio_olist": 35.0,
+   "flete_olist": 15.11,
+   "ventas_olist": 97,
+   "peso_g": 950,
+   "medidas_cm": [
+    20,
+    35,
+    20
+   ]
+  },
+  {
+   "sku": "OL-0027",
+   "product_id": "a19b6951c75da43aad691622dd2f6abe",
+   "ean": "7894309031253",
+   "categoria_olist": "moveis_decoracao",
+   "categoria": "moveis-decoracao",
+   "nombre": "Nicho Organizador MDF",
+   "marca": "Madeira Nobre",
+   "precio_olist": 35.0,
+   "flete_olist": 13.83,
+   "ventas_olist": 60,
+   "peso_g": 650,
+   "medidas_cm": [
+    20,
+    35,
+    20
+   ]
+  },
+  {
+   "sku": "OL-0028",
+   "product_id": "eb8c629f70275fd1c4f809116cce1efc",
+   "ean": "7894869133770",
+   "categoria_olist": "moveis_decoracao",
+   "categoria": "moveis-decoracao",
+   "nombre": "Prateleira Flutuante 60cm",
+   "marca": "Lar Moderno",
+   "precio_olist": 35.0,
+   "flete_olist": 13.52,
+   "ventas_olist": 95,
+   "peso_g": 1400,
+   "medidas_cm": [
+    20,
+    30,
+    20
+   ]
+  },
+  {
+   "sku": "OL-0029",
+   "product_id": "aca2eb7d00ea1a7b8ebd4e68314663af",
+   "ean": "7890747317133",
+   "categoria_olist": "moveis_decoracao",
+   "categoria": "moveis-decoracao",
+   "nombre": "Espelho Redondo Adnet 50cm",
+   "marca": "Estilo Casa",
+   "precio_olist": 69.9,
+   "flete_olist": 13.08,
+   "ventas_olist": 527,
+   "peso_g": 2600,
+   "medidas_cm": [
+    50,
+    10,
+    30
+   ]
+  },
+  {
+   "sku": "OL-0030",
+   "product_id": "764292b2b0f73f77a0272be03fdd45f3",
+   "ean": "7898492196775",
+   "categoria_olist": "moveis_decoracao",
+   "categoria": "moveis-decoracao",
+   "nombre": "Luminária de Mesa Articulada",
+   "marca": "Madeira Nobre",
+   "precio_olist": 89.9,
+   "flete_olist": 12.97,
+   "ventas_olist": 57,
+   "peso_g": 750,
+   "medidas_cm": [
+    30,
+    30,
+    11
+   ]
+  },
+  {
+   "sku": "OL-0031",
+   "product_id": "78efe838c04bbc568be034082200ac20",
+   "ean": "7893434528232",
+   "categoria_olist": "moveis_decoracao",
+   "categoria": "moveis-decoracao",
+   "nombre": "Banqueta Alta Estofada",
+   "marca": "Lar Moderno",
+   "precio_olist": 99.9,
+   "flete_olist": 22.57,
+   "ventas_olist": 101,
+   "peso_g": 2500,
+   "medidas_cm": [
+    40,
+    10,
+    30
+   ]
+  },
+  {
+   "sku": "OL-0032",
+   "product_id": "7814c273ab16783d73a9863ebfa8b141",
+   "ean": "7899736698505",
+   "categoria_olist": "moveis_decoracao",
+   "categoria": "moveis-decoracao",
+   "nombre": "Cabideiro de Chão em Madeira",
+   "marca": "Estilo Casa",
+   "precio_olist": 230.0,
+   "flete_olist": 50.34,
+   "ventas_olist": 62,
+   "peso_g": 12250,
+   "medidas_cm": [
+    45,
+    35,
+    45
+   ]
+  },
+  {
+   "sku": "OL-0033",
+   "product_id": "e53e557d5a159f5aa2c5e995dfdf244b",
+   "ean": "7894543956855",
+   "categoria_olist": "informatica_acessorios",
+   "categoria": "informatica-acessorios",
+   "nombre": "Mousepad Gamer Extra Grande",
+   "marca": "Byte Max",
+   "precio_olist": 78.9,
+   "flete_olist": 15.27,
+   "ventas_olist": 183,
+   "peso_g": 180,
+   "medidas_cm": [
+    17,
+    10,
+    13
+   ]
+  },
+  {
+   "sku": "OL-0034",
+   "product_id": "3f14d740544f37ece8a9e7bc8349797e",
+   "ean": "7890072340929",
+   "categoria_olist": "informatica_acessorios",
+   "categoria": "informatica-acessorios",
+   "nombre": "Mouse Óptico sem Fio 1600 DPI",
+   "marca": "Conecta+",
+   "precio_olist": 84.89,
+   "flete_olist": 15.34,
+   "ventas_olist": 91,
+   "peso_g": 321,
+   "medidas_cm": [
+    19,
+    14,
+    13
+   ]
+  },
+  {
+   "sku": "OL-0035",
+   "product_id": "36f60d45225e60c7da4558b070ce4b60",
+   "ean": "7899793028208",
+   "categoria_olist": "informatica_acessorios",
+   "categoria": "informatica-acessorios",
+   "nombre": "Hub USB 3.0 com 4 Portas",
+   "marca": "Conecta+",
+   "precio_olist": 89.49,
+   "flete_olist": 13.11,
+   "ventas_olist": 127,
+   "peso_g": 207,
+   "medidas_cm": [
+    19,
+    11,
+    14
+   ]
+  },
+  {
+   "sku": "OL-0036",
+   "product_id": "656e0eca68dcecf6a31b8ececfabe3e8",
+   "ean": "7898598537830",
+   "categoria_olist": "informatica_acessorios",
+   "categoria": "informatica-acessorios",
+   "nombre": "Teclado sem Fio ABNT2",
+   "marca": "Pixel Tech",
+   "precio_olist": 89.79,
+   "flete_olist": 15.36,
+   "ventas_olist": 141,
+   "peso_g": 173,
+   "medidas_cm": [
+    18,
+    13,
+    12
+   ]
+  },
+  {
+   "sku": "OL-0037",
+   "product_id": "d5991653e037ccb7af6ed7d94246b249",
+   "ean": "7890179603675",
+   "categoria_olist": "informatica_acessorios",
+   "categoria": "informatica-acessorios",
+   "nombre": "Suporte Ajustável para Notebook",
+   "marca": "Byte Max",
+   "precio_olist": 137.9,
+   "flete_olist": 23.11,
+   "ventas_olist": 103,
+   "peso_g": 922,
+   "medidas_cm": [
+    30,
+    15,
+    17
+   ]
+  },
+  {
+   "sku": "OL-0038",
+   "product_id": "d1c427060a0f73f6b889a5c7c61f2ac4",
+   "ean": "7891624067509",
+   "categoria_olist": "informatica_acessorios",
+   "categoria": "informatica-acessorios",
+   "nombre": "Webcam Full HD 1080p",
+   "marca": "Conecta+",
+   "precio_olist": 139.99,
+   "flete_olist": 40.37,
+   "ventas_olist": 343,
+   "peso_g": 6550,
+   "medidas_cm": [
+    20,
+    20,
+    20
+   ]
+  },
+  {
+   "sku": "OL-0039",
+   "product_id": "4298b7e67dc399c200662b569563a2b2",
+   "ean": "7893093996373",
+   "categoria_olist": "informatica_acessorios",
+   "categoria": "informatica-acessorios",
+   "nombre": "Headset Gamer com Microfone",
+   "marca": "Conecta+",
+   "precio_olist": 143.9,
+   "flete_olist": 15.51,
+   "ventas_olist": 88,
+   "peso_g": 200,
+   "medidas_cm": [
+    21,
+    14,
+    15
+   ]
+  },
+  {
+   "sku": "OL-0040",
+   "product_id": "3dd2a17168ec895c781a9191c1e95ad7",
+   "ean": "7899053386413",
+   "categoria_olist": "informatica_acessorios",
+   "categoria": "informatica-acessorios",
+   "nombre": "Kit Teclado e Mouse Gamer RGB",
+   "marca": "Pixel Tech",
+   "precio_olist": 149.9,
+   "flete_olist": 23.77,
+   "ventas_olist": 274,
+   "peso_g": 533,
+   "medidas_cm": [
+    22,
+    11,
+    20
+   ]
+  },
+  {
+   "sku": "OL-0041",
+   "product_id": "5a6e53c3b4e8684b13388d6aa4afdf12",
+   "ean": "7899203094335",
+   "categoria_olist": "utilidades_domesticas",
+   "categoria": "utilidades-domesticas",
+   "nombre": "Porta-Temperos Giratório 12 Potes",
+   "marca": "Cozinha Feliz",
+   "precio_olist": 16.99,
+   "flete_olist": 14.52,
+   "ventas_olist": 73,
+   "peso_g": 200,
+   "medidas_cm": [
+    19,
+    9,
+    12
+   ]
+  },
+  {
+   "sku": "OL-0042",
+   "product_id": "f7a17d2c51d9df89a4f1711c4ac17f33",
+   "ean": "7897650602400",
+   "categoria_olist": "utilidades_domesticas",
+   "categoria": "utilidades-domesticas",
+   "nombre": "Kit Potes Herméticos 10 Peças",
+   "marca": "Prática Casa",
+   "precio_olist": 52.9,
+   "flete_olist": 11.88,
+   "ventas_olist": 63,
+   "peso_g": 350,
+   "medidas_cm": [
+    22,
+    8,
+    19
+   ]
+  },
+  {
+   "sku": "OL-0043",
+   "product_id": "42a2c92a0979a949ca4ea89ec5c7b934",
+   "ean": "7897317912132",
+   "categoria_olist": "utilidades_domesticas",
+   "categoria": "utilidades-domesticas",
+   "nombre": "Garrafa Térmica 1L",
+   "marca": "Prática Casa",
+   "precio_olist": 59.9,
+   "flete_olist": 17.12,
+   "ventas_olist": 183,
+   "peso_g": 7000,
+   "medidas_cm": [
+    26,
+    47,
+    27
+   ]
+  },
+  {
+   "sku": "OL-0044",
+   "product_id": "30ac6df06dc59ad72cf2f158fc2d904c",
+   "ean": "7894915332508",
+   "categoria_olist": "utilidades_domesticas",
+   "categoria": "utilidades-domesticas",
+   "nombre": "Jogo de Facas Inox 6 Peças",
+   "marca": "Cozinha Feliz",
+   "precio_olist": 120.0,
+   "flete_olist": 23.38,
+   "ventas_olist": 55,
+   "peso_g": 16550,
+   "medidas_cm": [
+    22,
+    65,
+    40
+   ]
+  },
+  {
+   "sku": "OL-0045",
+   "product_id": "4b96786612ebe7463132fce2c4dca136",
+   "ean": "7890210873807",
+   "categoria_olist": "utilidades_domesticas",
+   "categoria": "utilidades-domesticas",
+   "nombre": "Escorredor de Louças Inox",
+   "marca": "Prática Casa",
+   "precio_olist": 129.0,
+   "flete_olist": 23.67,
+   "ventas_olist": 49,
+   "peso_g": 10750,
+   "medidas_cm": [
+    31,
+    61,
+    31
+   ]
+  },
+  {
+   "sku": "OL-0046",
+   "product_id": "928e52a9ad53a294fdcc91bcf59d1751",
+   "ean": "7891792611122",
+   "categoria_olist": "utilidades_domesticas",
+   "categoria": "utilidades-domesticas",
+   "nombre": "Organizador de Geladeira 6 Peças",
+   "marca": "Prática Casa",
+   "precio_olist": 130.0,
+   "flete_olist": 18.71,
+   "ventas_olist": 60,
+   "peso_g": 1600,
+   "medidas_cm": [
+    20,
+    60,
+    20
+   ]
+  },
+  {
+   "sku": "OL-0047",
+   "product_id": "e9a69340883a438c3f91739d14d3a56d",
+   "ean": "7891658226347",
+   "categoria_olist": "utilidades_domesticas",
+   "categoria": "utilidades-domesticas",
+   "nombre": "Lixeira Inox com Pedal 12L",
+   "marca": "Cozinha Feliz",
+   "precio_olist": 169.9,
+   "flete_olist": 25.01,
+   "ventas_olist": 58,
+   "peso_g": 3000,
+   "medidas_cm": [
+    33,
+    12,
+    34
+   ]
+  },
+  {
+   "sku": "OL-0048",
+   "product_id": "d696750e550fd0f733979dd7e5dff921",
+   "ean": "7894601910065",
+   "categoria_olist": "utilidades_domesticas",
+   "categoria": "utilidades-domesticas",
+   "nombre": "Jogo de Panelas Antiaderente 5 Peças",
+   "marca": "Prática Casa",
+   "precio_olist": 169.99,
+   "flete_olist": 17.01,
+   "ventas_olist": 57,
+   "peso_g": 950,
+   "medidas_cm": [
+    53,
+    5,
+    13
+   ]
+  }
+ ]
+}

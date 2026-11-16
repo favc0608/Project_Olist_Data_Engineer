@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="g1-version" content="$version">
+  <meta name="description" content="$descricao">
+  <title>$titulo</title>
+  <link rel="stylesheet" href="${raiz}css/styles.css">
+  $head_extra
+</head>
+<body>
+  $aviso
+  <header class="rd-header">
+    <div class="rd-topbar">
+      <div class="rd-topbar__inner">
+        <span>💳 <strong>Cartão Banco Ridley</strong>: descontos exclusivos e parcelamento especial em todas as lojas</span>
+        <nav class="rd-topbar__links" aria-label="Menu institucional">
+          <a href="${raiz}index.html">Início</a>
+          <a href="${raiz}busca/pagina-1.html">Departamentos</a>
+          <a href="${raiz}ofertas.html">🔥 Ofertas Cyber</a>
+          <a href="${raiz}frete.html">Frete 27 UF</a>
+          <a href="${raiz}vendedores.html">Lojas Parceiras</a>
+          <a href="${raiz}../index.html">← Hub G1</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="rd-header__main">
+      <a href="${raiz}index.html" class="rd-logo" aria-label="$tienda Brasil">
+        RIDLEY<span class="rd-logo__sub">BRASIL</span>
+      </a>
+
+      <form class="rd-search" action="${raiz}busca/pagina-1.html" method="get">
+        <input type="search" name="q" class="rd-search__input" placeholder="O que você procura hoje na Ridley?" aria-label="Buscar">
+        <button type="submit" class="rd-search__btn">Buscar</button>
+      </form>
+
+      <div class="rd-card-promo">
+        <span>Banco Ridley</span>
+        <strong>Peça seu Cartão</strong>
+      </div>
+    </div>
+
+    <div class="rd-cat-bar">
+      <div class="rd-cat-bar__inner">
+        $menu_categorias
+      </div>
+    </div>
+  </header>
+
+  <main class="rd-main">
+    $conteudo
+  </main>
+
+  <footer class="rd-footer">
+    <div class="rd-footer__inner">
+      <div class="rd-footer__cols">
+        <div>
+          <h4>Lojas de Departamento $tienda</h4>
+          <ul>
+            <li><a href="${raiz}index.html">Nossa História</a></li>
+            <li><a href="${raiz}vendedores.html">Lojas Oficiais e Parceiros</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Cartão Ridley e Entregas</h4>
+          <ul>
+            <li><a href="${raiz}frete.html">Tabela de Frete para as 27 UF</a></li>
+            <li><a href="${raiz}ofertas.html">Ofertas Exclusivas Cartão Ridley</a></li>
+            <li><a href="${raiz}sitemap.xml">Sitemap XML</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="rd-footer__copy">Site simulado para fins acadêmicos - DMC Grupo 1 • $tienda Brasil • Versão: <code>$version</code></p>
+    </div>
+  </footer>
+</body>
+</html>
+

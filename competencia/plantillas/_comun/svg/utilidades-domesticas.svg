@@ -1,0 +1,15 @@
+<svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Utilidades Domésticas">
+  <rect x="12" y="12" width="136" height="96" rx="14" fill="currentColor" fill-opacity="0.08"/>
+  <!-- Olla / Cafetera y utensilios de cocina -->
+  <rect x="44" y="48" width="72" height="40" rx="8" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="3.5"/>
+  <path d="M38 48H122" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <path d="M68 40C68 36.6863 70.6863 34 74 34H86C89.3137 34 92 36.6863 92 40V48H68V40Z" stroke="currentColor" stroke-width="3"/>
+  <!-- Asas laterales -->
+  <path d="M44 58H34" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <path d="M116 58H126" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <!-- Vapor -->
+  <path d="M66 26C66 22 70 22 70 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M80 26C80 22 84 22 84 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M94 26C94 22 98 22 98 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
+

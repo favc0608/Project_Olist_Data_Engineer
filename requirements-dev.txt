@@ -1,0 +1,4 @@
+# Pruebas unitarias (las Lambdas usan boto3; las pruebas lo reemplazan por dobles)
+boto3>=1.34
+pandas>=2.2
+ruff>=0.6

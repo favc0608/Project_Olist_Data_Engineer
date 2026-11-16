@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="g1-version" content="$version">
+  <meta name="description" content="$descricao">
+  <title>$titulo</title>
+  <link rel="stylesheet" href="${raiz}css/styles.css">
+  $head_extra
+</head>
+<body>
+  $aviso
+  <header class="cp-header">
+    <div class="cp-topbar">
+      <div class="cp-topbar__inner">
+        <span>Central do Vendedor • Cupom de Frete Grátis • $tienda Brasil</span>
+        <nav class="cp-topbar__links" aria-label="Links rápidos">
+          <a href="${raiz}index.html">Início</a>
+          <a href="${raiz}busca/pagina-1.html">Catálogo</a>
+          <a href="${raiz}ofertas.html">⚡ Ofertas Relâmpago</a>
+          <a href="${raiz}frete.html">Frete 27 UF</a>
+          <a href="${raiz}vendedores.html">Vendedores</a>
+          <a href="${raiz}../index.html">← Hub G1</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="cp-header__main">
+      <a href="${raiz}index.html" class="cp-logo" aria-label="$tienda Brasil">
+        <span class="cp-logo__bag">🛍️</span>
+        <span>compree<strong>.com.br</strong></span>
+      </a>
+
+      <form class="cp-search" action="${raiz}busca/pagina-1.html" method="get">
+        <input type="search" name="keyword" class="cp-search__input" placeholder="Buscar no $tienda com cupom de frete grátis..." aria-label="Buscar">
+        <button type="submit" class="cp-search__btn">Buscar</button>
+      </form>
+
+      <a href="${raiz}ofertas.html" class="cp-flash-pill">⚡ FLASH SALE</a>
+    </div>
+
+    <div class="cp-cat-strip">
+      <div class="cp-cat-strip__inner">
+        $menu_categorias
+      </div>
+    </div>
+  </header>
+
+  <main class="cp-main">
+    $conteudo
+  </main>
+
+  <footer class="cp-footer">
+    <div class="cp-footer__inner">
+      <div class="cp-footer__cols">
+        <div>
+          <h4>Atendimento ao Cliente</h4>
+          <ul>
+            <li><a href="${raiz}frete.html">Política de Frete Grátis e Prazos</a></li>
+            <li><a href="${raiz}vendedores.html">Lojas Oficiais e Vendedores</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Sobre o $tienda</h4>
+          <ul>
+            <li><a href="${raiz}ofertas.html">Ofertas Relâmpago do Dia</a></li>
+            <li><a href="${raiz}busca/pagina-1.html">Todos os Produtos</a></li>
+            <li><a href="${raiz}sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="cp-footer__copy">Site simulado para fins acadêmicos - DMC Grupo 1 • $tienda Brasil • Versão: <code>$version</code></p>
+    </div>
+  </footer>
+</body>
+</html>
+

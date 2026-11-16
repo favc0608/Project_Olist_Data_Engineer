@@ -1,0 +1,40 @@
+<li class="ui-search-layout__item$classe_estoque" data-sku="$sku_loja" data-ean="$ean"$data_extra>
+  <div class="ui-search-result__wrapper">
+    <div class="ui-search-item__image-box">
+      $badge_patrocinado
+      <a href="$url_produto" class="ui-search-item__image-link" aria-label="$marca">
+        <div class="ui-search-item__svg-wrap">$svg</div>
+      </a>
+    </div>
+    <div class="ui-search-result__content-wrapper">
+      <div class="ui-search-item__group ui-search-item__group--title">
+        <span class="ui-search-item__brand-discoverability">$marca</span>
+        <h2 class="ui-search-item__title"><a href="$url_produto" class="ui-search-link">$titulo_produto</a></h2>
+      </div>
+      <div class="ui-search-item__group ui-search-item__group--price">
+        <s class="andes-money-amount andes-money-amount--previous">
+          <span class="andes-money-amount__currency-symbol">$rs</span><span class="andes-money-amount__fraction">$preco_lista_inteiro</span><span class="andes-money-amount__cents">$preco_lista_centavos</span>
+        </s>
+        <div class="ui-search-price__second-line">
+          <span class="andes-money-amount ui-search-price__part">
+            <span class="andes-money-amount__currency-symbol">$rs</span><span class="andes-money-amount__fraction">$preco_inteiro</span><span class="andes-money-amount__cents">$preco_centavos</span>
+          </span>
+          <span class="ui-search-price__discount">$desconto% OFF</span>
+        </div>
+        <span class="ui-search-installments">$parcelas</span>
+      </div>
+      <div class="ui-search-item__group ui-search-item__group--shipping">
+        <span class="ui-search-item__shipping-free">$frete_gratis</span>
+        <span class="ui-search-item__fulfillment">Enviado pelo <strong>$full</strong></span>
+        <span class="ui-search-item__stock-status">$texto_estoque</span>
+      </div>
+      <div class="ui-search-item__group ui-search-item__group--reviews">
+        <span class="ui-search-reviews__stars" aria-hidden="true">★★★★★</span>
+        <span class="ui-search-reviews__rating-number">$rating</span>
+        <span class="ui-search-reviews__amount">($avaliacoes)</span>
+        <span class="ui-search-item__seller-info">Por $vendedor</span>
+      </div>
+    </div>
+  </div>
+</li>
+

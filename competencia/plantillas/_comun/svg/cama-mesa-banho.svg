@@ -1,0 +1,15 @@
+<svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cama, Mesa e Banho">
+  <rect x="12" y="12" width="136" height="96" rx="14" fill="currentColor" fill-opacity="0.08"/>
+  <!-- Cabecera de cama -->
+  <path d="M32 42C32 37.5817 35.5817 34 40 34H120C124.418 34 128 37.5817 128 42V66H32V42Z" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Almohadas -->
+  <rect x="42" y="46" width="32" height="16" rx="5" fill="currentColor" fill-opacity="0.18" stroke="currentColor" stroke-width="2.5"/>
+  <rect x="86" y="46" width="32" height="16" rx="5" fill="currentColor" fill-opacity="0.18" stroke="currentColor" stroke-width="2.5"/>
+  <!-- Colchón y edredón -->
+  <rect x="26" y="62" width="108" height="24" rx="6" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="3.5"/>
+  <path d="M26 72H134" stroke="currentColor" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <!-- Patas -->
+  <line x1="34" y1="86" x2="34" y2="96" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <line x1="126" y1="86" x2="126" y2="96" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+</svg>
+

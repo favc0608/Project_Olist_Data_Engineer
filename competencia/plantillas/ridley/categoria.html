@@ -1,0 +1,27 @@
+<nav class="rd-breadcrumb" aria-label="Breadcrumb">
+  <a href="${raiz}index.html">Início</a> / <a href="${raiz}busca/pagina-1.html">Departamentos</a> / <strong>$categoria_nome</strong>
+</nav>
+
+<section class="rd-cat-hero" data-category="$categoria_slug">
+  <div class="rd-cat-hero__svg">$svg</div>
+  <div>
+    <h1>$categoria_nome</h1>
+    <p><strong>$total produtos</strong> com preço especial no Cartão Ridley</p>
+  </div>
+</section>
+
+<div class="rd-catalog-layout">
+  <aside class="rd-sidebar">
+    <div class="rd-filter-box">
+      <h3>Condições de Compra</h3>
+      <label><input type="checkbox" checked disabled> Preço Cartão Ridley</label>
+      <label><input type="checkbox" checked disabled> Entrega Rápida</label>
+    </div>
+  </aside>
+  <section>
+    <div class="rd-products-grid">
+      $tarjetas
+    </div>
+  </section>
+</div>
+

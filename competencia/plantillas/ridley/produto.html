@@ -1,0 +1,84 @@
+<nav class="rd-breadcrumb" aria-label="Breadcrumb">
+  <a href="${raiz}index.html">Início</a> / <a href="$url_categoria">$categoria_nome</a> / <span>$partnumber</span>
+</nav>
+
+<article class="rd-pdp-card$classe_estoque" data-partnumber="$partnumber" data-sku="$sku_loja" data-ean="$ean"$data_extra>
+  <div class="rd-pdp-grid">
+    <div class="rd-pdp-media">
+      $badge_patrocinado
+      <div class="rd-pdp-svg">$svg</div>
+      <div class="rd-pdp-codes">
+        <span>PartNumber: <strong>$partnumber</strong></span>
+        <span>SKU: <strong>$sku_loja</strong></span>
+        <span>EAN: <strong>$ean</strong></span>
+      </div>
+    </div>
+
+    <div class="rd-pdp-info">
+      <div class="brand-logo"><span>$marca</span></div>
+      <h1 class="catalog-product-details__name">$titulo_produto</h1>
+
+      <div class="rd-card-rating">
+        ★ $rating de 5 estrelas ($avaliacoes avaliações) • <span class="catalog-product-details__discount-tag">-$desconto%</span>
+      </div>
+
+      <div class="catalog-prices rd-pdp-prices">
+        <div class="catalog-prices__list-price"><span class="price-label">De:</span> <span class="price-value">$preco_de</span></div>
+        <div class="catalog-prices__offer-price"><span class="price-label">Por:</span> <span class="price-value">$preco_por</span></div>
+        <div class="catalog-prices__card-price"><span class="price-label">No cartão Ridley:</span> <span class="price-value">$preco_cartao</span></div>
+      </div>
+
+      <div class="catalog-prices__installments">$parcelas</div>
+      <p class="rd-card-shipping"><strong>$frete_gratis</strong></p>
+      <div class="catalog-product-details__availability">Disponibilidade: <strong>$texto_estoque</strong></div>
+
+      <div class="rd-hero__cta">
+        <a href="${raiz}frete.html" class="rd-btn rd-btn--primary">Comprar com Cartão Ridley</a>
+        <a href="${raiz}busca/pagina-1.html" class="rd-btn rd-btn--secondary">Adicionar à Sacola</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="rd-pdp-cols">
+    <section class="rd-box">
+      <h2>Ficha Técnica do Produto</h2>
+      <table class="rd-table">
+        <tbody>
+          $specs
+        </tbody>
+      </table>
+    </section>
+
+    <section class="rd-box">
+      <h2>Calcule o Frete por Região</h2>
+      <table class="rd-table g1-fretes">
+        <thead>
+          <tr>
+            <th>Região</th>
+            <th>Valor</th>
+            <th>Prazo</th>
+          </tr>
+        </thead>
+        <tbody>
+          $fretes
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <section class="rd-box">
+    <h2>Avaliações de Clientes Ridley</h2>
+    <div class="rd-reviews-grid">
+      $resenas
+    </div>
+  </section>
+</article>
+
+<section class="rd-section">
+  <div class="rd-section__head">
+    <h2>Combine com estes Produtos</h2>
+  </div>
+  <div class="rd-products-grid">
+    $relacionados
+  </div>
+</section>

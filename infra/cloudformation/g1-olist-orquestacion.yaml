@@ -1,0 +1,464 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Olist G1 orquestacion - EventBridge (S3 Object Created, Scheduler cada 3 h y fin de ejecucion) -> Lambda
+  orquestadora (candado, pendiente, intervalo minimo) -> Step Functions g1-olist-pipeline -> jobs de Glue
+  bronze -> silver -> gold. Los disparadores automaticos nacen deshabilitados (parametro EstadoDisparadores).
+  v2 (2026-11-16): freno por fallos, horario de pendientes cada 10 min, reintentos de ~30 min ante job ocupado,
+  lectura de corridas de Glue (jobs ocupados) y frecuencia del horario como parametro.
+
+Metadata:
+  com.aws.cloudformation.Context:
+    arch: "S3 erp/landing/*.csv + web/landing/precios -> EventBridge -> Lambda g1-olist-orquestador -> Step Functions (Standard) -> Glue startJobRun.sync"
+    constraints:
+      - "shared AWS account: every named resource uses the g1-olist prefix; never touch non-g1 resources"
+      - "account Lambda concurrency limit is 10: no ReservedConcurrentExecutions"
+      - "user cannot create log groups: no Step Functions logging configuration"
+      - "S3 -> EventBridge needs the bucket setting EventBridgeConfiguration (applied outside this stack)"
+
+Parameters:
+  BucketLakehouse:
+    Type: String
+    Default: trabajo-integrador-g1
+  CodigoOrquestadorKey:
+    Type: String
+    Description: Clave S3 (en BucketLakehouse) del zip de la Lambda orquestadora (infra/empaquetar_web.py).
+  EstadoDisparadores:
+    Type: String
+    Default: DISABLED
+    AllowedValues: [ENABLED, DISABLED]
+    Description: Estado de la regla de archivos nuevos en S3 y del horario de respaldo.
+  IntervaloMinimoMin:
+    Type: Number
+    Default: 30
+    MinValue: 1
+    Description: Minutos minimos entre dos inicios automaticos del pipeline (30 normal; 1-5 solo para una demo).
+  IncluirGoldVentas:
+    Type: String
+    Default: "false"
+    AllowedValues: ["true", "false"]
+    Description: Incluir g1_olist_gold_ventas en el plan (aun sin probar).
+  ExpresionHorario:
+    Type: String
+    Default: "cron(0 */3 * * ? *)"
+    Description: Frecuencia del horario de respaldo (hora de Lima). Ej. rate(15 minutes) para una demo.
+  CorreoAlertas:
+    Type: String
+    Default: ""
+    Description: Correo que recibe el aviso cuando el pipeline falla (vacio = solo el tema SNS, sin suscripcion).
+  MaxFallosSeguidos:
+    Type: Number
+    Default: 2
+    MinValue: 1
+    Description: Ejecuciones fallidas seguidas tras las que se pausan los inicios automaticos (se reanuda con un inicio manual exitoso).
+
+Conditions:
+  HayCorreo: !Not [!Equals [!Ref CorreoAlertas, ""]]
+
+Resources:
+  # ---------------------------------------------------------------
+  # Lambda orquestadora
+  # ---------------------------------------------------------------
+  RolOrquestador:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: g1-olist-orquestador-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: lambda.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: control-y-pipeline
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: ListarLanding
+                Effect: Allow
+                Action: s3:ListBucket
+                Resource: !Sub "arn:aws:s3:::${BucketLakehouse}"
+                Condition:
+                  StringLike:
+                    s3:prefix: ["erp/landing/*", "web/landing/precios/*", "erp/_control/orquestacion/*"]
+              - Sid: ArchivosDeControl
+                Effect: Allow
+                Action: [s3:GetObject, s3:PutObject, s3:DeleteObject]
+                Resource: !Sub "arn:aws:s3:::${BucketLakehouse}/erp/_control/orquestacion/*"
+              - Sid: IniciarPipeline
+                Effect: Allow
+                Action: states:StartExecution
+                Resource: !Sub "arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:g1-olist-pipeline"
+              - Sid: CorridasDeGlue
+                Effect: Allow
+                Action: glue:GetJobRuns
+                Resource: !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:job/g1_olist_*"
+              - Sid: ControlesAthena
+                Effect: Allow
+                Action: [athena:StartQueryExecution, athena:GetQueryExecution, athena:GetQueryResults, athena:GetWorkGroup]
+                Resource: !Sub "arn:aws:athena:${AWS::Region}:${AWS::AccountId}:workgroup/g1-olist"
+              - Sid: CatalogoLectura
+                Effect: Allow
+                Action: [glue:GetDatabase, glue:GetTable, glue:GetTables, glue:GetPartition, glue:GetPartitions]
+                Resource:
+                  - !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:catalog"
+                  - !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:database/g1_olist_lakehouse"
+                  - !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:table/g1_olist_lakehouse/*"
+              - Sid: DatosLectura
+                Effect: Allow
+                Action: s3:GetObject
+                Resource:
+                  - !Sub "arn:aws:s3:::${BucketLakehouse}/erp/silver/*"
+                  - !Sub "arn:aws:s3:::${BucketLakehouse}/erp/gold/*"
+                  - !Sub "arn:aws:s3:::${BucketLakehouse}/web/silver/*"
+              - Sid: UbicacionBucket  # Athena la consulta sin prefijo: no puede ir bajo la condicion s3:prefix
+                Effect: Allow
+                Action: s3:GetBucketLocation
+                Resource: !Sub "arn:aws:s3:::${BucketLakehouse}"
+              - Sid: ListarDatos
+                Effect: Allow
+                Action: s3:ListBucket
+                Resource: !Sub "arn:aws:s3:::${BucketLakehouse}"
+                Condition:
+                  StringLike:
+                    s3:prefix: ["erp/silver/*", "erp/gold/*", "web/silver/*", "athena-resultados/*", ""]
+              - Sid: ResultadosAthena
+                Effect: Allow
+                Action: [s3:GetObject, s3:PutObject, s3:AbortMultipartUpload]
+                Resource: !Sub "arn:aws:s3:::${BucketLakehouse}/athena-resultados/*"
+              - Sid: EstadoEjecuciones
+                Effect: Allow
+                Action: states:DescribeExecution
+                Resource: !Sub "arn:aws:states:${AWS::Region}:${AWS::AccountId}:execution:g1-olist-pipeline:*"
+
+  FuncionOrquestador:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: g1-olist-orquestador
+      Description: Decide cuando arranca el pipeline y que jobs de Glue corre (candado en S3)
+      Runtime: python3.12
+      Architectures: [arm64]
+      Handler: handler.lambda_handler
+      Code:
+        S3Bucket: !Ref BucketLakehouse
+        S3Key: !Ref CodigoOrquestadorKey
+      MemorySize: 256
+      Timeout: 300
+      Role: !GetAtt RolOrquestador.Arn
+      Environment:
+        Variables:
+          BUCKET: !Ref BucketLakehouse
+          PREFIJO_CONTROL: erp/_control/orquestacion/
+          NOMBRE_MAQUINA: g1-olist-pipeline
+          INTERVALO_MINIMO_MIN: !Ref IntervaloMinimoMin
+          INCLUIR_GOLD_VENTAS: !Ref IncluirGoldVentas
+          MAX_FALLOS_SEGUIDOS: !Ref MaxFallosSeguidos
+
+  # ---------------------------------------------------------------
+  # Step Functions
+  # ---------------------------------------------------------------
+  RolMaquina:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: g1-olist-pipeline-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: states.amazonaws.com }
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !Ref AWS::AccountId
+      Policies:
+        - PolicyName: glue-y-lambda
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: JobsDelGrupo
+                Effect: Allow
+                Action: [glue:StartJobRun, glue:GetJobRun, glue:GetJobRuns, glue:BatchStopJobRun]
+                Resource: !Sub "arn:aws:glue:${AWS::Region}:${AWS::AccountId}:job/g1_olist_*"
+              - Sid: Orquestadora
+                Effect: Allow
+                Action: lambda:InvokeFunction
+                Resource: !GetAtt FuncionOrquestador.Arn
+
+  MaquinaPipeline:
+    Type: AWS::StepFunctions::StateMachine
+    Properties:
+      StateMachineName: g1-olist-pipeline
+      StateMachineType: STANDARD
+      RoleArn: !GetAtt RolMaquina.Arn
+      DefinitionString: !Sub
+        - |
+          {
+            "Comment": "Pipeline Olist G1: bronze -> silver (orders primero) -> silver dependiente -> gold",
+            "TimeoutSeconds": 7200,
+            "StartAt": "Preparar",
+            "States": {
+              "Preparar": {
+                "Type": "Task", "Resource": "arn:aws:states:::lambda:invoke",
+                "Parameters": {"FunctionName": "${Funcion}", "Payload": {"accion": "preparar", "entrada.$": "$", "ejecucion.$": "$$.Execution.Name"}},
+                "ResultSelector": {"plan.$": "$.Payload"}, "ResultPath": "$.p",
+                "Retry": [${RetryLambda}],
+                "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "RegistrarFallo"}],
+                "Next": "HayTrabajo"
+              },
+              "HayTrabajo": {
+                "Type": "Choice",
+                "Choices": [{"Variable": "$.p.plan.hay_trabajo", "BooleanEquals": true, "Next": "Bronze"}],
+                "Default": "Cerrar"
+              },
+              "Bronze": {${MapBronze}, "Next": "Silver"},
+              "Silver": {${MapSilver1}, "Next": "SilverDependiente"},
+              "SilverDependiente": {${MapSilver2}, "Next": "Gold"},
+              "Gold": {${MapGold}, "Next": "Controles"},
+              "Controles": {
+                "Type": "Task", "Resource": "arn:aws:states:::lambda:invoke",
+                "Parameters": {"FunctionName": "${Funcion}",
+                               "Payload": {"accion": "controlar", "plan.$": "$.p.plan", "nombre.$": "$$.Execution.Name"}},
+                "Retry": [${RetryLambda}], "ResultPath": null,
+                "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "RegistrarFallo"}],
+                "Next": "Cerrar"
+              },
+              "Cerrar": {
+                "Type": "Task", "Resource": "arn:aws:states:::lambda:invoke",
+                "Parameters": {"FunctionName": "${Funcion}",
+                               "Payload": {"accion": "cerrar", "plan.$": "$.p.plan", "nombre.$": "$$.Execution.Name"}},
+                "Retry": [${RetryLambda}], "ResultPath": null, "Next": "Fin"
+              },
+              "Fin": {"Type": "Succeed"},
+              "RegistrarFallo": {
+                "Type": "Task", "Resource": "arn:aws:states:::lambda:invoke",
+                "Parameters": {"FunctionName": "${Funcion}",
+                               "Payload": {"accion": "registrar_fallo", "error.$": "$.error", "nombre.$": "$$.Execution.Name"}},
+                "Retry": [${RetryLambda}], "ResultPath": null, "Next": "Fallo"
+              },
+              "Fallo": {"Type": "Fail", "Error": "PipelineFallido", "Cause": "Un job de Glue o un control de calidad fallo; ver erp/_control/orquestacion/fallos/"}
+            }
+          }
+        # Reintentos de cada job: ConcurrentRunsExceeded (job ocupado por una corrida manual) espera hasta ~30 min
+        # (1, 1.5, 2.3, 3.4 y luego 5 min, con jitter); la cola nativa de Glue (JobRunQueuingEnabled) no la acepta
+        # la integracion de Step Functions (ValidateStateMachineDefinition: SCHEMA_VALIDATION_FAILED).
+        - Funcion: !GetAtt FuncionOrquestador.Arn
+          RetryLambda: >-
+            {"ErrorEquals": ["Lambda.ServiceException", "Lambda.TooManyRequestsException", "Lambda.SdkClientException"],
+             "IntervalSeconds": 5, "MaxAttempts": 3, "BackoffRate": 2}
+          MapBronze: >-
+            "Type": "Map", "ItemsPath": "$.p.plan.bronze", "MaxConcurrency": 4, "ResultPath": null,
+            "ItemProcessor": {"ProcessorConfig": {"Mode": "INLINE"}, "StartAt": "JobBronze", "States": {"JobBronze": {
+              "Type": "Task", "Resource": "arn:aws:states:::glue:startJobRun.sync", "Parameters": {"JobName.$": "$", "ExecutionClass": "STANDARD"},
+              "Retry": [{"ErrorEquals": ["Glue.ConcurrentRunsExceededException"], "IntervalSeconds": 60, "MaxAttempts": 8,
+                         "BackoffRate": 1.5, "MaxDelaySeconds": 300, "JitterStrategy": "FULL"},
+                        {"ErrorEquals": ["Glue.ThrottlingException", "Glue.InternalServiceException"],
+                         "IntervalSeconds": 60, "MaxAttempts": 3, "BackoffRate": 2}],
+              "End": true}}},
+            "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "RegistrarFallo"}]
+          MapSilver1: >-
+            "Type": "Map", "ItemsPath": "$.p.plan.silver_1", "MaxConcurrency": 4, "ResultPath": null,
+            "ItemProcessor": {"ProcessorConfig": {"Mode": "INLINE"}, "StartAt": "JobSilver", "States": {"JobSilver": {
+              "Type": "Task", "Resource": "arn:aws:states:::glue:startJobRun.sync", "Parameters": {"JobName.$": "$", "ExecutionClass": "STANDARD"},
+              "Retry": [{"ErrorEquals": ["Glue.ConcurrentRunsExceededException"], "IntervalSeconds": 60, "MaxAttempts": 8,
+                         "BackoffRate": 1.5, "MaxDelaySeconds": 300, "JitterStrategy": "FULL"},
+                        {"ErrorEquals": ["Glue.ThrottlingException", "Glue.InternalServiceException"],
+                         "IntervalSeconds": 60, "MaxAttempts": 3, "BackoffRate": 2}],
+              "End": true}}},
+            "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "RegistrarFallo"}]
+          MapSilver2: >-
+            "Type": "Map", "ItemsPath": "$.p.plan.silver_2", "MaxConcurrency": 3, "ResultPath": null,
+            "ItemProcessor": {"ProcessorConfig": {"Mode": "INLINE"}, "StartAt": "JobSilverDependiente", "States": {"JobSilverDependiente": {
+              "Type": "Task", "Resource": "arn:aws:states:::glue:startJobRun.sync", "Parameters": {"JobName.$": "$", "ExecutionClass": "STANDARD"},
+              "Retry": [{"ErrorEquals": ["Glue.ConcurrentRunsExceededException"], "IntervalSeconds": 60, "MaxAttempts": 8,
+                         "BackoffRate": 1.5, "MaxDelaySeconds": 300, "JitterStrategy": "FULL"},
+                        {"ErrorEquals": ["Glue.ThrottlingException", "Glue.InternalServiceException"],
+                         "IntervalSeconds": 60, "MaxAttempts": 3, "BackoffRate": 2}],
+              "End": true}}},
+            "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "RegistrarFallo"}]
+          MapGold: >-
+            "Type": "Map", "ItemsPath": "$.p.plan.gold", "MaxConcurrency": 4, "ResultPath": null,
+            "ItemProcessor": {"ProcessorConfig": {"Mode": "INLINE"}, "StartAt": "JobGold", "States": {"JobGold": {
+              "Type": "Task", "Resource": "arn:aws:states:::glue:startJobRun.sync", "Parameters": {"JobName.$": "$", "ExecutionClass": "STANDARD"},
+              "Retry": [{"ErrorEquals": ["Glue.ConcurrentRunsExceededException"], "IntervalSeconds": 60, "MaxAttempts": 8,
+                         "BackoffRate": 1.5, "MaxDelaySeconds": 300, "JitterStrategy": "FULL"},
+                        {"ErrorEquals": ["Glue.ThrottlingException", "Glue.InternalServiceException"],
+                         "IntervalSeconds": 60, "MaxAttempts": 3, "BackoffRate": 2}],
+              "End": true}}},
+            "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "RegistrarFallo"}]
+
+  # ---------------------------------------------------------------
+  # EventBridge: archivos nuevos, horario de respaldo y fin de ejecucion
+  # ---------------------------------------------------------------
+  ReglaArchivosNuevos:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: g1-olist-archivos-nuevos
+      Description: Archivos nuevos en la landing del ERP o de la web -> orquestadora
+      State: !Ref EstadoDisparadores
+      EventPattern:
+        source: [aws.s3]
+        detail-type: [Object Created]
+        detail:
+          bucket:
+            name: [!Ref BucketLakehouse]
+          object:
+            key:
+              - wildcard: "erp/landing/*.csv"
+              - prefix: "web/landing/precios/"
+      Targets:
+        - Id: orquestador
+          Arn: !GetAtt FuncionOrquestador.Arn
+
+  ReglaFinEjecucion:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: g1-olist-fin-pipeline
+      Description: Fin de una ejecucion del pipeline -> liberar candado y atender lo pendiente
+      State: ENABLED
+      EventPattern:
+        source: [aws.states]
+        detail-type: [Step Functions Execution Status Change]
+        detail:
+          stateMachineArn: [!Ref MaquinaPipeline]
+          status: [SUCCEEDED, FAILED, TIMED_OUT, ABORTED]
+      Targets:
+        - Id: orquestador
+          Arn: !GetAtt FuncionOrquestador.Arn
+
+  PermisoArchivos:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref FuncionOrquestador
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt ReglaArchivosNuevos.Arn
+
+  PermisoFin:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref FuncionOrquestador
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt ReglaFinEjecucion.Arn
+
+  RolHorario:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: g1-olist-horario-pipeline-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: scheduler.amazonaws.com }
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !Ref AWS::AccountId
+      Policies:
+        - PolicyName: invocar-orquestador
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: lambda:InvokeFunction
+                Resource: !GetAtt FuncionOrquestador.Arn
+
+  HorarioPipeline:
+    Type: AWS::Scheduler::Schedule
+    Properties:
+      Name: g1-olist-pipeline-cada-3h
+      Description: Respaldo - revisa si hay archivos sin procesar (frecuencia = parametro ExpresionHorario)
+      State: !Ref EstadoDisparadores
+      ScheduleExpression: !Ref ExpresionHorario
+      ScheduleExpressionTimezone: America/Lima
+      FlexibleTimeWindow: { Mode: "OFF" }
+      Target:
+        Arn: !GetAtt FuncionOrquestador.Arn
+        RoleArn: !GetAtt RolHorario.Arn
+        Input: '{"origen": "horario"}'
+
+  # Auditoria E1-04: atiende pendiente.json cuando ya paso el intervalo minimo (o cuando se libero un job ocupado).
+  # Si no hay pendiente, la Lambda lee un objeto de S3 y termina (144 invocaciones al dia, capa gratuita).
+  HorarioPendientes:
+    Type: AWS::Scheduler::Schedule
+    Properties:
+      Name: g1-olist-pipeline-pendientes
+      Description: Cada 10 min revisa si quedo un aviso de archivos nuevos sin atender
+      State: !Ref EstadoDisparadores
+      ScheduleExpression: rate(10 minutes)
+      FlexibleTimeWindow: { Mode: "OFF" }
+      Target:
+        Arn: !GetAtt FuncionOrquestador.Arn
+        RoleArn: !GetAtt RolHorario.Arn
+        Input: '{"origen": "revisar_pendiente"}'
+        RetryPolicy:
+          MaximumRetryAttempts: 0
+
+  # ---------------------------------------------------------------
+  # Aviso de fallos: Step Functions FAILED / TIMED_OUT / ABORTED -> SNS -> correo
+  # ---------------------------------------------------------------
+  TemaAlertas:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: g1-olist-alertas-pipeline
+      DisplayName: Olist G1 pipeline
+
+  PoliticaTemaAlertas:
+    Type: AWS::SNS::TopicPolicy
+    Properties:
+      Topics: [!Ref TemaAlertas]
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: EventBridgePublica
+            Effect: Allow
+            Principal: { Service: events.amazonaws.com }
+            Action: sns:Publish
+            Resource: !Ref TemaAlertas
+            Condition:
+              ArnEquals:
+                aws:SourceArn: !GetAtt ReglaPipelineFallido.Arn
+
+  SuscripcionCorreo:
+    Type: AWS::SNS::Subscription
+    Condition: HayCorreo
+    Properties:
+      TopicArn: !Ref TemaAlertas
+      Protocol: email
+      Endpoint: !Ref CorreoAlertas
+
+  ReglaPipelineFallido:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: g1-olist-pipeline-fallido
+      Description: Ejecucion fallida del pipeline -> aviso por correo (SNS)
+      State: ENABLED
+      EventPattern:
+        source: [aws.states]
+        detail-type: [Step Functions Execution Status Change]
+        detail:
+          stateMachineArn: [!Ref MaquinaPipeline]
+          status: [FAILED, TIMED_OUT, ABORTED]
+      Targets:
+        - Id: alertas
+          Arn: !Ref TemaAlertas
+          InputTransformer:
+            InputPathsMap:
+              nombre: "$.detail.name"
+              estado: "$.detail.status"
+              hora: "$.time"
+            InputTemplate: >-
+              "Pipeline Olist G1: la ejecucion <nombre> termino en <estado> (<hora> UTC). Detalle en
+              s3://trabajo-integrador-g1/erp/_control/orquestacion/fallos/<nombre>.json y en la consola de Step Functions
+              (g1-olist-pipeline). Los inicios automaticos se pausan tras 2 fallos seguidos."
+
+Outputs:
+  MaquinaPipeline:
+    Value: !Ref MaquinaPipeline
+  FuncionOrquestador:
+    Value: !Ref FuncionOrquestador
+  TemaAlertas:
+    Value: !Ref TemaAlertas
+  ControlS3:
+    Value: !Sub "s3://${BucketLakehouse}/erp/_control/orquestacion/"

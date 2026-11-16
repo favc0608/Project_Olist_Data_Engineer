@@ -1,0 +1,93 @@
+<nav class="cp-breadcrumb" aria-label="Breadcrumb">
+  <a href="${raiz}index.html">Início</a> › <a href="$url_categoria">$categoria_nome</a> › <span>$sku_loja</span>
+</nav>
+
+<article class="cp-pdp-card$classe_estoque" data-sqe="item" data-sku="$sku_loja" data-ean="$ean"$data_extra>
+  <div class="cp-pdp-grid">
+    <div class="cp-pdp-media">
+      $badge_patrocinado
+      <div class="cp-pdp-svg">$svg</div>
+      <div class="cp-pdp-codes">
+        <span>SKU: <strong>$sku_loja</strong></span>
+        <span>EAN: <strong>$ean</strong></span>
+      </div>
+    </div>
+
+    <div class="cp-pdp-info">
+      <div class="shopee-item-card__brand">$marca</div>
+      <h1 class="shopee-item-card__text-name">$titulo_produto</h1>
+
+      <div class="cp-pdp-stats">
+        <span class="shopee-item-card__rating">★ $rating</span>
+        <span>($avaliacoes avaliações)</span>
+        <div class="shopee-item-card__sold-count">$vendidos</div>
+      </div>
+
+      <div class="cp-pdp-price-panel">
+        <span class="shopee-item-card__original-price">$preco_original</span>
+        <div class="shopee-item-card__current-price">$preco_html</div>
+        <div class="shopee-item-card__discount-badge">-$desconto%</div>
+      </div>
+
+      <div class="cp-pdp-variants">
+        <h3>Variações Disponíveis:</h3>
+        <div class="cp-variants-list">
+          $variantes
+        </div>
+      </div>
+
+      <div class="cp-pdp-shipping">
+        <p><span class="shopee-item-card__location">Origem: $localizacao</span> • <strong>$frete_gratis</strong></p>
+        <p>Disponibilidade: <span class="shopee-item-card__stock-badge">$texto_estoque</span></p>
+      </div>
+
+      <div class="cp-hero__actions">
+        <a href="${raiz}frete.html" class="cp-btn cp-btn--primary">Comprar Agora</a>
+        <a href="${raiz}busca/pagina-1.html" class="cp-btn cp-btn--secondary">Adicionar ao Carrinho</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cp-pdp-cols">
+    <section class="cp-box">
+      <h2>Especificações Técnicas</h2>
+      <table class="cp-table">
+        <tbody>
+          $specs
+        </tbody>
+      </table>
+    </section>
+
+    <section class="cp-box">
+      <h2>Calcule o Frete por Região</h2>
+      <table class="cp-table g1-fretes">
+        <thead>
+          <tr>
+            <th>Região</th>
+            <th>Frete</th>
+            <th>Prazo</th>
+          </tr>
+        </thead>
+        <tbody>
+          $fretes
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <section class="cp-box">
+    <h2>Avaliações dos Compradores</h2>
+    <div class="cp-reviews-grid">
+      $resenas
+    </div>
+  </section>
+</article>
+
+<section class="cp-section">
+  <div class="cp-section__head">
+    <h2>Produtos Similares em Oferta</h2>
+  </div>
+  <div class="shopee-search-item-result__items">
+    $relacionados
+  </div>
+</section>

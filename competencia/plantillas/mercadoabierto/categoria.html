@@ -1,0 +1,33 @@
+<nav class="ml-breadcrumb" aria-label="Breadcrumb">
+  <a href="${raiz}index.html">Início</a>
+  <span>/</span>
+  <a href="${raiz}busca/pagina-1.html">Categorias</a>
+  <span>/</span>
+  <span>$categoria_nome</span>
+</nav>
+
+<section class="ml-category-banner" data-category-slug="$categoria_slug">
+  <div class="ml-category-banner__svg">$svg</div>
+  <div>
+    <h1>$categoria_nome</h1>
+    <p class="ui-search-search-result__quantity-results">$total produtos encontrados nesta categoria</p>
+  </div>
+</section>
+
+<div class="ml-catalog-layout">
+  <aside class="ml-sidebar">
+    <div class="ml-filter-box">
+      <h3>Filtros de $categoria_nome</h3>
+      <label class="ml-check-row"><input type="checkbox" checked disabled> <span>Frete grátis</span></label>
+      <label class="ml-check-row"><input type="checkbox" checked disabled> <span>Enviado pelo ⚡ FULL</span></label>
+      <label class="ml-check-row"><input type="checkbox" checked disabled> <span>Vendedores com boa reputação</span></label>
+    </div>
+  </aside>
+
+  <section class="ml-results-column">
+    <ol class="ui-search-layout ui-search-layout--grid">
+      $tarjetas
+    </ol>
+  </section>
+</div>
+

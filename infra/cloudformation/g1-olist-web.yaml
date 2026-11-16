@@ -1,0 +1,443 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Proyecto Integrador Olist - Grupo 1. Fuente WEB: sitios simulados de competidores
+  en un bucket S3 privado, servidos por CloudFront con Origin Access Control (OAC).
+
+Parameters:
+  NombreBucketSitio:
+    Type: String
+    Default: g1-olist-competencia-web
+    Description: Bucket solo para el sitio (nunca el bucket del lakehouse).
+  TtlSegundos:
+    Type: Number
+    Default: 60
+    MinValue: 0
+    MaxValue: 3600
+    Description: Tiempo de caché por defecto en CloudFront (corto, para ver los cambios de precio).
+  BucketLakehouse:
+    Type: String
+    Default: trabajo-integrador-g1
+  PrefijoWeb:
+    Type: String
+    Default: web/
+  CodigoScraperKey:
+    Type: String
+    Description: Clave del zip de la Lambda scraper en el bucket del lakehouse (infra/empaquetar_web.py)
+  CodigoPublicadorKey:
+    Type: String
+    Description: Clave del zip de la Lambda publicadora en el bucket del lakehouse
+  UsuarioColab:
+    Type: String
+    Default: g1-olist-colab-productor
+    Description: Usuario del Colab (stack g1-olist-streaming); solo recibe permiso para enviar cambios
+  EstadoHorarios:
+    Type: String
+    Default: ENABLED
+    AllowedValues: [ENABLED, DISABLED]
+
+Resources:
+  # 1. BUCKET DEL SITIO (privado: solo CloudFront lo lee; avisa a SQS cuando cambia un .html)
+  BucketSitio:
+    Type: AWS::S3::Bucket
+    DependsOn: PoliticaColaCambiosSitio
+    Properties:
+      BucketName: !Ref NombreBucketSitio
+      NotificationConfiguration:
+        QueueConfigurations:
+          - Event: "s3:ObjectCreated:*"
+            Queue: !GetAtt ColaCambiosSitio.Arn
+            Filter:
+              S3Key:
+                Rules:
+                  - { Name: suffix, Value: .html }
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      Tags:
+        - { Key: proyecto, Value: g1-olist }
+        - { Key: fuente, Value: web }
+
+  # 2. CLOUDFRONT
+  ControlAccesoOrigen:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: g1-olist-competencia-oac
+        Description: Acceso de CloudFront al bucket del sitio de competidores
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  PoliticaCache:
+    Type: AWS::CloudFront::CachePolicy
+    Properties:
+      CachePolicyConfig:
+        Name: g1-olist-competencia-cache
+        Comment: Cache corto para que el scraper vea los cambios de precio
+        DefaultTTL: !Ref TtlSegundos
+        MinTTL: 0
+        MaxTTL: 300
+        ParametersInCacheKeyAndForwardedToOrigin:
+          EnableAcceptEncodingGzip: true
+          EnableAcceptEncodingBrotli: true
+          CookiesConfig: { CookieBehavior: none }
+          HeadersConfig: { HeaderBehavior: none }
+          QueryStringsConfig: { QueryStringBehavior: none }
+
+  PoliticaEncabezados:
+    Type: AWS::CloudFront::ResponseHeadersPolicy
+    Properties:
+      ResponseHeadersPolicyConfig:
+        Name: g1-olist-competencia-encabezados
+        Comment: Sitio académico, no indexable
+        CustomHeadersConfig:
+          Items:
+            - { Header: X-Robots-Tag, Value: "noindex, nofollow", Override: true }
+        SecurityHeadersConfig:
+          ContentTypeOptions: { Override: true }
+          StrictTransportSecurity: { AccessControlMaxAgeSec: 31536000, Override: true }
+
+  Distribucion:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: g1-olist - sitios simulados de competidores (fines académicos)
+        Enabled: true
+        DefaultRootObject: index.html
+        HttpVersion: http2and3
+        PriceClass: PriceClass_100
+        Origins:
+          - Id: sitio-s3
+            DomainName: !GetAtt BucketSitio.RegionalDomainName
+            OriginAccessControlId: !GetAtt ControlAccesoOrigen.Id
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+        DefaultCacheBehavior:
+          TargetOriginId: sitio-s3
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD]
+          CachedMethods: [GET, HEAD]
+          Compress: true
+          CachePolicyId: !Ref PoliticaCache
+          ResponseHeadersPolicyId: !Ref PoliticaEncabezados
+      Tags:
+        - { Key: proyecto, Value: g1-olist }
+        - { Key: fuente, Value: web }
+
+  # 3. SOLO ESTA DISTRIBUCIÓN PUEDE LEER EL BUCKET
+  PoliticaBucketSitio:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref BucketSitio
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: LecturaSoloCloudFront
+            Effect: Allow
+            Principal: { Service: cloudfront.amazonaws.com }
+            Action: s3:GetObject
+            Resource: !Sub "${BucketSitio.Arn}/*"
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribucion}"
+          - Sid: SoloHttps
+            Effect: Deny
+            Principal: "*"
+            Action: "s3:*"
+            Resource: [!GetAtt BucketSitio.Arn, !Sub "${BucketSitio.Arn}/*"]
+            Condition:
+              Bool: { aws:SecureTransport: "false" }
+
+  # 4. COLAS
+  # 4.1 S3 -> scraper (modo demo): agrupa los avisos de una publicación en una sola corrida
+  DlqCambiosSitio:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: g1-olist-web-cambios-sitio-dlq
+      MessageRetentionPeriod: 1209600
+
+  ColaCambiosSitio:
+    Type: AWS::SQS::Queue
+    Metadata:
+      com.aws.cloudformation.Context:
+        must: ["VisibilityTimeout >= 6 * Timeout del scraper + ventana"]
+    Properties:
+      QueueName: g1-olist-web-cambios-sitio
+      VisibilityTimeout: 1500
+      MessageRetentionPeriod: 86400
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt DlqCambiosSitio.Arn
+        maxReceiveCount: 3
+
+  PoliticaColaCambiosSitio:
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      Queues: [!Ref ColaCambiosSitio]
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: AvisosDelBucketDelSitio
+            Effect: Allow
+            Principal: { Service: s3.amazonaws.com }
+            Action: sqs:SendMessage
+            Resource: !GetAtt ColaCambiosSitio.Arn
+            Condition:
+              ArnLike: { aws:SourceArn: !Sub "arn:aws:s3:::${NombreBucketSitio}" }
+              StringEquals: { aws:SourceAccount: !Ref AWS::AccountId }
+
+  # 4.2 Colab -> publicador: FIFO con un solo grupo, así los cambios se aplican en orden y sin carreras
+  DlqCambios:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: g1-olist-web-cambios-dlq.fifo
+      FifoQueue: true
+      MessageRetentionPeriod: 1209600
+
+  ColaCambios:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: g1-olist-web-cambios.fifo
+      FifoQueue: true
+      ContentBasedDeduplication: false
+      VisibilityTimeout: 1100
+      MessageRetentionPeriod: 86400
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt DlqCambios.Arn
+        maxReceiveCount: 3
+
+  PoliticaColabCambios:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: g1-olist-web-enviar-cambios
+      Users: [!Ref UsuarioColab]
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action: [sqs:SendMessage, sqs:GetQueueUrl, sqs:GetQueueAttributes]
+            Resource: !GetAtt ColaCambios.Arn
+
+  # 5. LAMBDA SCRAPER
+  RolScraper:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: g1-olist-web-scraper-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: lambda.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: scraper-web
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: [sqs:ReceiveMessage, sqs:DeleteMessage, sqs:GetQueueAttributes, sqs:ChangeMessageVisibility]
+                Resource: !GetAtt ColaCambiosSitio.Arn
+              - Effect: Allow
+                Action: s3:GetObject
+                Resource:
+                  - !Sub "arn:aws:s3:::${BucketLakehouse}/${PrefijoWeb}referencia/*"
+                  - !Sub "arn:aws:s3:::${BucketLakehouse}/${PrefijoWeb}landing/control/*"
+              - Effect: Allow
+                Action: s3:PutObject
+                Resource: !Sub "arn:aws:s3:::${BucketLakehouse}/${PrefijoWeb}landing/*"
+              - Effect: Allow
+                Action: s3:ListBucket
+                Resource: !Sub "arn:aws:s3:::${BucketLakehouse}"
+                Condition:
+                  StringLike: { s3:prefix: !Sub "${PrefijoWeb}*" }
+              - Effect: Allow
+                Action: s3:PutObject
+                Resource: !Sub "${BucketSitio.Arn}/_estado/*"
+              - Effect: Allow
+                Action: [cloudfront:CreateInvalidation, cloudfront:GetInvalidation]
+                Resource: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribucion}"
+              - Effect: Allow
+                Action: cloudwatch:PutMetricData
+                Resource: "*"
+                Condition:
+                  StringEquals: { cloudwatch:namespace: g1-olist/web }
+
+  FuncionScraper:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: g1-olist-web-scraper
+      Description: Scrapea los sitios de la competencia por CloudFront y valida contra la verdad (R1-R13)
+      Runtime: python3.12
+      Architectures: [arm64]
+      Handler: handler.lambda_handler
+      Code:
+        S3Bucket: !Ref BucketLakehouse
+        S3Key: !Ref CodigoScraperKey
+      MemorySize: 512
+      Timeout: 240
+      Role: !GetAtt RolScraper.Arn
+      Environment:
+        Variables:
+          BUCKET: !Ref BucketLakehouse
+          PREFIJO: !Ref PrefijoWeb
+          URL_SITIO: !Sub "https://${Distribucion.DomainName}/"
+          DISTRIBUCION_ID: !Ref Distribucion
+          BUCKET_SITIO: !Ref BucketSitio
+          PAUSA_SEGUNDOS: "0.05"
+
+  TriggerScraper:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      EventSourceArn: !GetAtt ColaCambiosSitio.Arn
+      FunctionName: !Ref FuncionScraper
+      BatchSize: 1000
+      MaximumBatchingWindowInSeconds: 30
+      ScalingConfig:
+        MaximumConcurrency: 2
+      Enabled: true
+
+  # 6. LAMBDA PUBLICADORA
+  RolPublicador:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: g1-olist-web-publicador-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: lambda.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: publicador-web
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: [sqs:ReceiveMessage, sqs:DeleteMessage, sqs:GetQueueAttributes, sqs:ChangeMessageVisibility]
+                Resource: !GetAtt ColaCambios.Arn
+              - Effect: Allow
+                Action: s3:ListBucket
+                Resource: !GetAtt BucketSitio.Arn
+              - Effect: Allow
+                Action: [s3:GetObject, s3:PutObject, s3:DeleteObject]
+                Resource: !Sub "${BucketSitio.Arn}/*"
+              - Effect: Allow
+                Action: [s3:GetObject, s3:PutObject]
+                Resource:
+                  - !Sub "arn:aws:s3:::${BucketLakehouse}/${PrefijoWeb}referencia/*"
+                  - !Sub "arn:aws:s3:::${BucketLakehouse}/${PrefijoWeb}landing/cambios/*"
+              - Effect: Allow
+                Action: s3:ListBucket
+                Resource: !Sub "arn:aws:s3:::${BucketLakehouse}"
+                Condition:
+                  StringLike: { s3:prefix: !Sub "${PrefijoWeb}*" }
+
+  FuncionPublicador:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: g1-olist-web-publicador
+      Description: Genera el sitio con los precios del día o con los cambios del Colab y lo publica
+      Runtime: python3.12
+      Architectures: [arm64]
+      Handler: handler.lambda_handler
+      Code:
+        S3Bucket: !Ref BucketLakehouse
+        S3Key: !Ref CodigoPublicadorKey
+      MemorySize: 1024
+      Timeout: 180
+      Role: !GetAtt RolPublicador.Arn
+      Environment:
+        Variables:
+          BUCKET: !Ref BucketLakehouse
+          BUCKET_SITIO: !Ref BucketSitio
+          PREFIJO: !Ref PrefijoWeb
+          URL_SITIO: !Sub "https://${Distribucion.DomainName}/"
+
+  TriggerPublicador:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      EventSourceArn: !GetAtt ColaCambios.Arn
+      FunctionName: !Ref FuncionPublicador
+      BatchSize: 10
+      Enabled: true
+
+  # 7. HORARIOS (producción): publicar 05:00 y scrapear 06:00, hora de Lima
+  RolHorarios:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: g1-olist-web-horarios-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: scheduler.amazonaws.com }
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals: { aws:SourceAccount: !Ref AWS::AccountId }
+      Policies:
+        - PolicyName: invocar-lambdas-web
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: lambda:InvokeFunction
+                Resource: [!GetAtt FuncionScraper.Arn, !GetAtt FuncionPublicador.Arn]
+
+  HorarioPublicador:
+    Type: AWS::Scheduler::Schedule
+    Properties:
+      Name: g1-olist-web-publicar-diario
+      Description: Precios nuevos del día en los sitios de la competencia
+      ScheduleExpression: cron(0 5 * * ? *)
+      ScheduleExpressionTimezone: America/Lima
+      FlexibleTimeWindow: { Mode: "OFF" }
+      State: !Ref EstadoHorarios
+      Target:
+        Arn: !GetAtt FuncionPublicador.Arn
+        RoleArn: !GetAtt RolHorarios.Arn
+        Input: '{"modo": "diario"}'
+        RetryPolicy: { MaximumRetryAttempts: 2 }
+
+  HorarioScraper:
+    Type: AWS::Scheduler::Schedule
+    Properties:
+      Name: g1-olist-web-scrapear-diario
+      Description: Scraping completo de las 4 tiendas (producción)
+      ScheduleExpression: cron(0 6 * * ? *)
+      ScheduleExpressionTimezone: America/Lima
+      FlexibleTimeWindow: { Mode: "OFF" }
+      State: !Ref EstadoHorarios
+      Target:
+        Arn: !GetAtt FuncionScraper.Arn
+        RoleArn: !GetAtt RolHorarios.Arn
+        Input: '{"modo": "programado"}'
+        RetryPolicy: { MaximumRetryAttempts: 2 }
+
+Outputs:
+  ColaCambiosUrl:
+    Description: Cola donde el Colab envía los cambios de precio (FIFO, MessageGroupId fijo)
+    Value: !Ref ColaCambios
+  FuncionScraper:
+    Value: !Ref FuncionScraper
+  FuncionPublicador:
+    Value: !Ref FuncionPublicador
+  UrlSitio:
+    Description: URL pública del hub de competidores
+    Value: !Sub "https://${Distribucion.DomainName}/"
+  IdDistribucion:
+    Description: Para invalidaciones (publicador y prueba en tiempo real)
+    Value: !Ref Distribucion
+  BucketSitio:
+    Value: !Ref BucketSitio

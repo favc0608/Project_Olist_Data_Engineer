@@ -1,0 +1,30 @@
+<div class="s-results-bar">
+  <nav aria-label="Breadcrumb">
+    <a href="${raiz}index.html">Início</a> › <a href="${raiz}busca/pagina-1.html">Departamentos</a> › <strong>$categoria_nome</strong>
+  </nav>
+  <span><strong>$total resultados</strong> em $categoria_nome</span>
+</div>
+
+<section class="s-cat-hero" data-category="$categoria_slug">
+  <div class="s-cat-hero__svg">$svg</div>
+  <div>
+    <h1>$categoria_nome</h1>
+    <p>Produtos importados e nacionais com garantia Selva Plus.</p>
+  </div>
+</section>
+
+<div class="s-catalog-grid">
+  <aside class="s-sidebar">
+    <div class="s-filter-group">
+      <h3>Filtrar por Envio</h3>
+      <label><input type="checkbox" checked disabled> <span class="s-prime-badge">✓plus</span> Frete grátis elegível</label>
+      <label><input type="checkbox" checked disabled> Em estoque imediato</label>
+    </div>
+  </aside>
+  <section>
+    <div class="s-main-slot">
+      $tarjetas
+    </div>
+  </section>
+</div>
+
